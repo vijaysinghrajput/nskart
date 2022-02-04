@@ -5,16 +5,21 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import URL from '../../URL';
 import { PromoLoading } from '../Loaders/SkeletonLoader';
+import { Link, useLocation } from 'react-router-dom';
 
 import { ProductLoading } from '../Loaders/SkeletonLoader';
 import { SliderProducts } from '../ProductsCards/SliderProducts';
+import { CategoryLoading } from '../Loaders/SkeletonLoader';
 
 const Promo = (props) => {
 
     const data = useContext(contextData);
 
-    const [bannerData, setBannerData] = useState([]);
 
+
+    const location = useLocation();
+
+    const { categories } = data;
 
     const { products } = data;
     const [limit, setLimit] = useState(8);
@@ -37,9 +42,6 @@ const Promo = (props) => {
 
 
 
-    useEffect(() => {
-        setBannerData(data.banners);
-    }, [data.banners]);
 
     const options = {
         autoplay: true,
@@ -47,57 +49,76 @@ const Promo = (props) => {
         loop: true,
         margin: 10,
         nav: false,
-        dots: true,
+        dots: false,
         responsive: {
             0: {
-                items: 2
-            },
-            600: {
                 items: 3
             },
+            600: {
+                items: 7
+            },
             1000: {
-                items: 4
+                items: 10
             }
         }
     };
 
     return (
         <>
-            <div class="py-3 osahan-promos">
-                <div class="d-flex align-items-center mb-3">
-                    <h5 class="m-0">Promos for you</h5>
-                </div>
-                {data.isLoading ? <>
-                    <PromoLoading />
-                </> :
-                    <div class="promo-sliders pb-0 mb-0">
-                        {products.length ? (
-                            <OwlCarousel className='owl-theme' {...options}>
-                                {products.slice(0, 12).map((item, i) => {
-                                    return (
-                                        <div class="">
 
-                                            <div class="">
+            {data.isLoading ? (
+                <>
+                    <CategoryLoading />
+                    <CategoryLoading />
+                    <CategoryLoading />
+                    <CategoryLoading />
+                </>
+            ) : categories.length ? (
+                < >
+                    {categories.map((item, i) => {
+                        return (
+                            <div class="py-3 osahan-promos">
+                                <div class="d-flex align-items-center mb-3">
+                                    <h5 class="m-0">{item.name} {item.id}</h5>
+                                </div>
+                                {data.isLoading ? <>
+                                    <PromoLoading />
+                                </> :
+                                    <div class="promo-sliders pb-0 mb-0">
+                                        {products.length ? (
+                                            <OwlCarousel className='owl-theme' {...options}>
+                                                {products.map((itemss, i) => {
+                                                    return (
 
-                                                <SliderProducts data={item} />
+                                                        < >
+                                                            {item.id === itemss.parent_id ? (
+                                                                <div class="">
+
+                                                                    <SliderProducts data={itemss} />
+
+                                                                </div>
+                                                            ) : null}
 
 
 
-                                            </div>
+                                                        </>
+                                                    )
+                                                })}
+                                            </OwlCarousel>
+                                        ) : null}
+                                    </div>
+                                }
+                            </div>
+                        )
+                    })}
+                </>
+            ) : null}
 
-                                            {/* <div className="row">
-                    <div className="col-12 d-flex align-items-center justify-content-center mt-4">
-                        <a href="javascript:void(0)" onClick={() => setLimit(limit + 8)} class="mx-auto btn btn-outline-success btn-sm">See more</a>
-                    </div>
-                </div> */}
-                                        </div>
-                                    )
-                                })}
-                            </OwlCarousel>
-                        ) : null}
-                    </div>
-                }
-            </div>
+
+
+
+
+
         </>
     )
 

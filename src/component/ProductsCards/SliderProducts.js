@@ -35,7 +35,7 @@ export const SliderProducts = ({ data }) => {
 
     return (
         <>
-            <div class="product-item mb-30">
+            <div class="product-item ">
                 <a href="single_product_view.html" class="product-img">
                     <img src={URL + "/images/product-images/" + data.product_image} alt="" />
                     <div class="product-absolute-options">
