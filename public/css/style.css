@@ -6585,3 +6585,25 @@ textarea {
     font-weight: 500;
     display: inline-block;
 }
+
+.search-items-layout {
+	transition: height 0.25s linear;
+	z-index: 9999999;
+	width: 96%;
+	background: #ffffff;
+	position: absolute;
+	top: 35px;
+    border-radius: 0.4rem!important;
+    margin: 0;
+    padding: 6px;
+    border: 1px solid #ffffff;
+    box-shadow: 0px 6px 10px rgba(0,0,0,.1)!important;
+}
+
+.search-items-layout > .dropdown-item {
+    padding: 8px 0 8px 16px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #2b2f4c;
+}

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import contextData from '../../context/MainContext';
 import URL from '../../URL';
 import { useMediaQuery } from '@chakra-ui/react';
@@ -9,7 +9,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { CategoryLoading } from '../Loaders/SkeletonLoader';
 
 
-const TopHead = (props) => {
+const TopHead = ({ setSearchTerm, onFocus, onBlur, focused, searchedProduct, wrapperRef }) => {
 
     const data = useContext(contextData);
     const [isNotSmallerScreen] = useMediaQuery("(min-width:1024px)");
@@ -38,9 +38,18 @@ const TopHead = (props) => {
 
                     <div class="search120">
                         <div class="ui search">
-                            <div class="ui left icon input swdh10">
-                                <input class="prompt srch10" type="text" placeholder="Search for products.." />
+                            <div class="ui left icon input swdh10" ref={wrapperRef}>
+                                <input class="prompt srch10" onFocus={onFocus} onBlur={onBlur} onChange={e => setSearchTerm(e.target.value)} type="text" placeholder="Search for products.." />
                                 <i class='uil uil-search-alt icon icon1'></i>
+                                {focused ? (
+                                    <div class="search-items-layout" aria-labelledby="dropdownMenuButton">
+                                        {searchedProduct.slice(0, 10).map((item, i) => {
+                                            return (
+                                                <Link onClick={onBlur} class="dropdown-item" to={"/" + (item.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + item.id}>{item.product_name}</Link>
+                                            )
+                                        })}
+                                    </div>
+                                ) : (null)}
                             </div>
                         </div>
                     </div>
@@ -68,7 +77,7 @@ const TopHead = (props) => {
                                     <div class="night_mode_switch__btn">
                                         <a href="#" id="night-mode" class="btn-night-mode">
                                             <i class="uil uil-moon"></i> Night mode
-										<span class="btn-night-mode-switch">
+                                            <span class="btn-night-mode-switch">
                                                 <span class="uk-switch-button"></span>
                                             </span>
                                         </a>
