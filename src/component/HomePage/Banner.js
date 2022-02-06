@@ -29,7 +29,7 @@ const Banner = (props) => {
                 items: 1
             },
             600: {
-                items: 2
+                items: 3
             }
         }
     };
