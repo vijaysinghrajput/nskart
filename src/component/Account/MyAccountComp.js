@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import MainData from '../../context/MainContext';
+
+
 const MyAccountComp = (props) => {
 
     const data = useContext(MainData);
@@ -13,38 +15,84 @@ const MyAccountComp = (props) => {
         } else if (e.target.id === 'email') {
             this.setState({ email: e.target.value });
         }
-
     }
 
 
     return (
-
-
         <>
-
-            <div class="col-lg-8 p-4 bg-white rounded shadow-sm">
-                <h4 class="mb-4 profile-title">My account</h4>
-                <div id="edit_profile">
-                    <div class="p-0">
-                        <form action="">
-                            <div class="form-group">
-                                <label for="exampleInputName1">Full Name</label>
-                                <input onChange={onChange} type="text" class="form-control" id="name" value={UserData.name} />
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputNumber1">Mobile Number</label>
-                                <input onChange={onChange} type="number" class="form-control" id="phone" value={UserData.phone} />
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input onChange={onChange} type="email" class="form-control" id="email" value={UserData.email} />
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-success btn-block btn-lg">Save Changes</button>
-                            </div>
-                        </form>
+            <div class="col-md-12">
+                <div class="main-title-tab">
+                    <h4><i class="uil uil-apps"></i>Overview</h4>
+                </div>
+                <div class="welcome-text">
+                    <h2>Hi! John Doe</h2>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="pdpt-bg">
+                    <div class="pdpt-title">
+                        <h4>My Rewards</h4>
                     </div>
-
+                    <div class="ddsh-body">
+                        <h2>6 Rewards</h2>
+                        <ul>
+                            <li>
+                                <a href="#" class="small-reward-dt hover-btn">Won $2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="small-reward-dt hover-btn">Won 40% Off</a>
+                            </li>
+                            <li>
+                                <a href="#" class="small-reward-dt hover-btn">Caskback $1</a>
+                            </li>
+                            <li>
+                                <a href="#" class="rewards-link5">+More</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="more-link14">Rewards and Details <i class="uil uil-angle-double-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="pdpt-bg">
+                    <div class="pdpt-title">
+                        <h4>My Orders</h4>
+                    </div>
+                    <div class="ddsh-body">
+                        <h2>2 Recently Purchases</h2>
+                        <ul class="order-list-145">
+                            <li>
+                                <div class="smll-history">
+                                    <div class="order-title">2 Items <span data-inverted="" data-tooltip="2kg broccoli, 1kg Apple" data-position="top center">?</span></div>
+                                    <div class="order-status">On the way</div>
+                                    <p>$22</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="more-link14">All Orders <i class="uil uil-angle-double-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <div class="pdpt-bg">
+                    <div class="pdpt-title">
+                        <h4>My Wallet</h4>
+                    </div>
+                    <div class="wllt-body">
+                        <h2>Credits $100</h2>
+                        <ul class="wallet-list">
+                            <li>
+                                <a href="#" class="wallet-links14"><i class="uil uil-card-atm"></i>Payment Methods</a>
+                            </li>
+                            <li>
+                                <a href="#" class="wallet-links14"><i class="uil uil-gift"></i>3 offers Active</a>
+                            </li>
+                            <li>
+                                <a href="#" class="wallet-links14"><i class="uil uil-coins"></i>Points Earning</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#" class="more-link14">Rewards and Details <i class="uil uil-angle-double-right"></i></a>
                 </div>
             </div>
         </>

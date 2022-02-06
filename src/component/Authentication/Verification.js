@@ -69,6 +69,10 @@ const Verification = () => {
                     <div class="container containerLogin">
                         <div class="row d-flex align-items-center justify-content-center vh-100">
                             <div class="col-lg-6">
+                                <div class="sign-logo mb-5" id="logo">
+                                    <a href="index.html"><img src="/images/logo.svg" alt="" /></a>
+                                    <a href="index.html"><img class="logo-inverse" src="/images/dark-logo.svg" alt="" /></a>
+                                </div>
                                 <div class="osahan-signin osahan-verification shadow bg-white p-4 rounded">
                                     <div class="osahan-form p-3 text-center mt-3">
                                         <h2>Verify your number</h2>
@@ -88,16 +92,17 @@ const Verification = () => {
 
                                         />
                                         <div className="mt-4">
-                                            <p><a href="#" class="text-decoration-none text-success">Resend Code</a></p>
+                                            {/* <p><a href="#" class="text-decoration-none text-success">Resend Code</a></p> */}
                                             {isLoading ? (
                                                 <Button
                                                     isLoading
                                                     loadingText='Verifying'
-                                                    class="btn btn-success btn-lg rounded d-flex align-items-center justify-content-center w-100"
+                                                    class="btn btn-lg rounded d-flex align-items-center justify-content-center w-100"
+                                                    style={{ background: "#f55d2a", color: "#fff" }}
                                                     variant='outline'
                                                 />
                                             ) : (
-                                                <button disabled={inputOTP.length === 4 ? false : true} class="btn btn-success btn-block btn-lg" onClick={() => validateOtp()}>Continue</button>
+                                                <button style={{ background: "#f55d2a", color: "#fff" }} disabled={inputOTP.length === 4 ? false : true} class="btn btn-block btn-lg" onClick={() => validateOtp()}>Continue</button>
                                             )}
                                         </div>
                                     </div>

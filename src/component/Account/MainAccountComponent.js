@@ -25,23 +25,30 @@ const MainAccountComponent = (props) => {
             <AccountContainer>
                 {isNotSmallerScreen && <AccountNavigatinMenu />}
 
-                {data.auth.isUserLogin && (
-                    <>
-                        {location.pathname == '/account' && <MyAccountComp />}
-                        {location.pathname == '/notification' && <Notification />}
-                        {location.pathname == '/address' && <AddressComp />}
-                        {location.pathname == '/orders' && <MyOrder />}
-                    </>
-                )}
+                <div class="col-lg-9 col-md-8">
+                    <div class="dashboard-right">
+                        <div class="row">
+
+                            {data.auth.isUserLogin && (
+                                <>
+                                    {location.pathname == '/account' && <MyAccountComp />}
+                                    {location.pathname == '/notification' && <Notification />}
+                                    {location.pathname == '/address' && <AddressComp />}
+                                    {location.pathname == '/orders' && <MyOrder />}
+                                </>
+                            )}
 
 
-                {location.pathname == '/offers' && <Promos />}
+                            {location.pathname == '/offers' && <Promos />}
 
-                {location.pathname == '/contact' && <ContactUs />}
+                            {location.pathname == '/contact' && <ContactUs />}
 
-                {location.pathname == '/help' && <AddressComp />}
+                            {location.pathname == '/help' && <AddressComp />}
 
-                {location.pathname == '/condition' && <Condition />}
+                            {location.pathname == '/condition' && <Condition />}
+                        </div>
+                    </div>
+                </div>
 
 
             </AccountContainer>

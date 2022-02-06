@@ -27,7 +27,7 @@ const Category = (props) => {
                 {console.log(location.pathname)}
                 {location.pathname !== "/category" &&
                     <div class="d-flex align-items-center mb-2">
-                        <h5 class="m-0">Shop By Category</h5>
+                        <h5 class="mb-3" style={{ fontSize: 24 }}>Shop By Category</h5>
 
                     </div>
                 }
@@ -47,13 +47,13 @@ const Category = (props) => {
                                         <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                             <div class="p-4">
 
-                                                <Link state={location.pathname} to={"/" + (item.name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + item.id + "/" + item.name}>
+                                                <Link state={location.pathname} to={"/categories/" + item.id + "/" + item.name}>
                                                     <img src={URL + "/images/category_images/" + item.image} class="img-fluid item-img w-100 mb-3"
                                                         alt={item.name + " in Gorakhpur | SuperG.in is an online vegetable, fruit, cake ,chicken, and grocery delivery website and app in Gorakhpur , Which deliver you home at very low prices. Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
                                                         title={item.name + " delivery in Gorakhpur | Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
 
                                                     />
-                                                    <a class="small-reward-dt hover-btn" >{item.name}</a>
+                                                    <a class="small-reward-dt hover-btn p-2" style={{ color: "#fff", whiteSpace: "nowrap", textOverflow: 'ellipsis', overflow: 'hidden', textAlign: "center" }}>{item.name}</a>
                                                 </Link>
                                             </div>
                                         </div>

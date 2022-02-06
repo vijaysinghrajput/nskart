@@ -10,11 +10,6 @@ import URL from "../URL";
 const cookies = new Cookies();
 
 const ContextProvider = props => {
-
-    //comiting..
-    //new commit
-    //ek aur please bholenath
-
     // const navigate = useNavigate();
 
     // const [isLoading, setLoading] = useState(true);

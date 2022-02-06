@@ -40,11 +40,13 @@ const Header = () => {
   const navigate = useNavigate();
 
   const useOutsideAlerter = (ref) => {
+    console.log("hey outside", ref)
     useEffect(() => {
       /**
        * Alert if clicked on outside of element
        */
       function handleClickOutside(event) {
+        console.log("inside", event)
         if (ref.current && !ref.current.contains(event.target)) {
           onBlur();
         }
@@ -92,7 +94,7 @@ const Header = () => {
 
       <header class="header clearfix">
 
-        <TopHead />
+        <TopHead setSearchTerm={setSearchTerm} onFocus={onFocus} onBlur={onBlur} focused={focused} searchedProduct={searchedProduct} wrapperRef={wrapperRef} />
 
         <NavHeader />
 

@@ -7,6 +7,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { Link, useLocation } from 'react-router-dom';
 import { CategoryLoading } from '../Loaders/SkeletonLoader';
+import { useNavigate } from 'react-router';
 
 
 const NavHeader = (props) => {
@@ -15,6 +16,8 @@ const NavHeader = (props) => {
     const [isNotSmallerScreen] = useMediaQuery("(min-width:1024px)");
     const location = useLocation();
     const [categories, Setcategories] = useState([]);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         Setcategories(data.categories);
@@ -38,19 +41,11 @@ const NavHeader = (props) => {
                             <button class="navbar-toggler menu_toggle_btn" type="button" data-target="#navbarSupportedContent"><i class="uil uil-bars"></i></button>
                             <div class="collapse navbar-collapse d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end bg-dark1 p-3 p-lg-0 mt1-5 mt-lg-0 mobileMenu" id="navbarSupportedContent">
                                 <ul class="navbar-nav main_nav align-self-stretch">
-                                    <li class="nav-item"><a href="index.html" class="nav-link active" title="Home">Home</a></li>
-                                    <li class="nav-item"><a href="index.html" class="nav-link active" title="Home">About Us</a></li>
-                                    <li class="nav-item"><a href="index.html" class="nav-link " title="Home">Offers</a></li>
-                                    <li class="nav-item"><a href="index.html" class="nav-link " title="Home">Trending Products</a></li>
-                                    <li class="nav-item"><a href="index.html" class="nav-link " title="Home">Contact Us</a></li>
-
-
-
-
-
-
-
-
+                                    <li class="nav-item"><a href="#" onClick={() => navigate("/")} class="nav-link active" title="Home">Home</a></li>
+                                    <li class="nav-item"><a href="#" onClick={() => navigate("/about")} class="nav-link" title="About Us">About Us</a></li>
+                                    <li class="nav-item"><a href="#" onClick={() => navigate("/offers")} class="nav-link " title="Offers">Offers</a></li>
+                                    <li class="nav-item"><a href="#" onClick={() => navigate("/treding")} class="nav-link " title="Trending Products">Trending Products</a></li>
+                                    <li class="nav-item"><a href="#" onClick={() => navigate("/contact")} class="nav-link " title="Contact Us">Contact Us</a></li>
                                 </ul>
                             </div>
                         </div>

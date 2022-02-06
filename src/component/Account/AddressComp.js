@@ -156,515 +156,65 @@ class AddressComp extends Component {
 
         return (
             <>
-
-                <div class="col-lg-8 p-4 bg-white rounded shadow-sm">
-                    <div class="osahan-my_address">
-
-                        <h2 class="mb-0">
-                            <button onClick={() => this.refreshSate()} class="btn d-flex align-items-center bg-white btn-block text-left btn-lg h5 px-3 py-4 m-0" type="button" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
-                                My Addresses <a href="#" data-toggle="modal" data-target="#addAddressModal" class="text-decoration-none text-success ml-auto"> <i class="icofont-plus-circle mr-1"></i>Add New </a>
-                            </button>
-                        </h2>
-
-                        {this.state.isDataLoading ? (
-                            <DualHelixLoader />
-                        ) : (
-
-
-                            <>
-                                {this.state.UserAddressData.length ? (
-
-                                    <>
-                                        {this.state.UserAddressData.map((item, i) => {
-                                            return (
-                                                <div class="custom-control custom-radio px-0 mb-3 position-relative border-custom-radio">
-                                                    {/* <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" /> */}
-                                                    <label class="custom-control-label w-100" for="customRadioInline1">
-                                                        <div>
-                                                            <div class="p-3 bg-white rounded shadow-sm w-100">
-                                                                <p class="small text-muted m-0">{item.name} , {item.phone}</p>
-                                                                <p class="small text-muted m-0">{item.user_house_no} , {item.address}</p>
-                                                                <p class="small text-muted m-0">{item.base_address} , {item.city}</p>
-                                                                <p class="pt-2 m-0 text-right">
-                                                                    <span class="small">
-                                                                        <a href="#" onClick={() => this.EditCalled(item.address_id)} data-toggle="modal" data-target={"#EditAddressModal" + i} class="text-decoration-none text-success">
-                                                                            <i class="icofont-edit"></i> Edit</a>
-                                                                    </span>
-                                                                    <span class="small ml-3"><a href="#" data-toggle="modal" data-target={"#delete" + i} class="text-decoration-none text-danger"><i class="icofont-trash"></i> Delete</a></span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </label>
-                                                </div>
-                                            )
-                                        })}
-                                    </>
-
-
-                                ) : null}
-
-                            </>
-
-
-
-
-
-                        )}
-
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="main-title-tab">
+                            <h4><i class="uil uil-location-point"></i>My Address</h4>
+                        </div>
                     </div>
-                </div>
-
-
-
-
-
-                <div class="modal fade" id="addAddressModal" tabindex="-1" role="dialog" aria-labelledby="addAddressModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="addAddressModalLabel">Add Delivery Address</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                    <div class="col-lg-12 col-md-12">
+                        <div class="pdpt-bg">
+                            <div class="pdpt-title">
+                                <h4>My Address</h4>
                             </div>
-                            <div class="modal-body">
-                                <form class="">
-                                    <div class="form-row">
-
-                                        <div class="col-md-12 form-group"><label class="form-label"> <label class="text-danger">*</label> Full Name</label>
-                                            <input onChange={this.onChange} placeholder="First & Last Name" id="user_name" value={this.state.user_name} type="text" class="form-control" />
-                                        </div>
-
-                                        <div class="col-md-12 form-group"><label class="form-label"> <label class="text-danger">*</label> Mobile Number (10 Digit)</label>
-                                            <input onChange={this.onChange} placeholder="10 Digit Mobile Number" id="user_mobile" value={this.state.user_mobile} type="tel" class="form-control" />
-                                        </div>
-
-
-
-
-                                        <React.Fragment>
-
-
-                                            <div class="col-md-12 form-group">
-                                                <label class="form-label"> <label class="text-danger">*</label> Area / Locality</label>
-                                                <PlacesAutocomplete
-                                                    value={this.state.address}
-                                                    onChange={this.handleChange}
-                                                    onSelect={this.handleSelect}
-                                                    searchOptions={searchOptions}
-
-
-                                                >
-
-                                                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                                                        <div>
-                                                            <input
-
-                                                                {...getInputProps({
-                                                                    placeholder: 'E.g. Taramandal , Golghar , Mohaddipur',
-                                                                    className: 'form-control',
-                                                                })}
-                                                            />
-                                                            <div className="autocomplete-dropdown-container">
-                                                                {loading && <div>Loading...</div>}
-                                                                {suggestions.map(suggestion => {
-                                                                    const className = suggestion.active
-                                                                        ? 'list-group-item active'
-                                                                        : 'list-group-item';
-                                                                    // inline style for demonstration purpose
-                                                                    const style = suggestion.active
-                                                                        ? { cursor: 'pointer' }
-                                                                        : { cursor: 'pointer' };
-                                                                    return (
-                                                                        <div class="list-group"
-                                                                            {...getSuggestionItemProps(suggestion, {
-                                                                                className,
-                                                                                style,
-                                                                            })}
-                                                                        >
-                                                                            <span>{suggestion.description}</span>
-                                                                        </div>
-                                                                    );
-                                                                })}
-                                                            </div>
-                                                        </div>
-                                                    )}
-
-                                                </PlacesAutocomplete>
-
-
-
-
-
-
-
-
-
-                                            </div>
-
-
-
-
-
-
-                                        </React.Fragment>
-
-
-
-
-
-
-                                        <label class="form-label">Locate your delivery address on map   <label class="text-danger"> - Move red location marker to your delivery address</label></label>
-                                        <div class="container-fluid">
-                                            <div class="map-responsive">
-
-                                                <Map
-                                                    google={window.google}
-                                                    center={this.state.position}
-                                                    zoom={this.state.zoom}
-                                                    defaultZoom="Zoom"
-                                                    initialCenter={{
-                                                        lat: this.state.position.lat,
-                                                        lng: this.state.position.lng
-                                                    }}
-                                                    onIdle={this.handleMapIdle}
-
-
-
-
-                                                >
-
-
-
-
-
-
-                                                    {this.state.mapLoaded && (
-                                                        <Marker
-                                                            // map={window.google}
-                                                            draggable={true}
-                                                            position={{ lat: this.state.position.lat, lng: this.state.position.lng }}
-                                                            onDragend={(t, map, coord) => this.onMarkerDragEnd(coord)}
-                                                            name="Delivery Location" />
-                                                        // animation={window.google.maps.Animation.DROP} />
-                                                    )}
-
-
-
-                                                    <InfoWindow
-                                                        position={{ lat: (this.state.position.lat + 0.0018), lng: this.state.position.lng }}
-
-                                                    >
-                                                        <div>
-                                                            <p style={{ padding: 0, margin: 0 }}>hello</p>
-                                                        </div>
-                                                    </InfoWindow>
-
-
-
-
-
-
-
-
-
-                                                </Map>
-
-
-
-
-
-
-
-
-
-
-                                            </div>
-                                        </div>
-
-
-
-
-
-
-
-                                        <div class="col-md-12 form-group">
-                                        </div>
-
-
-                                        <div class="col-md-12 form-group"><label class="form-label"> <label class="text-danger">*</label> Flat / House / Office No.</label>
-                                            <input onChange={this.onChange} type="text" value={this.state.user_house_no} id="user_house_no" class="form-control" />
-                                        </div>
-
-                                        <div class="col-md-12 form-group"><label class="form-label"> <label class="text-danger">*</label> Street / Society / Office Name</label>
-                                            <input type="text" onChange={this.onChange} value={this.state.user_street} id="user_street" class="form-control" />
-                                        </div>
-
-
-
-
-
+                            <div class="address-body">
+                                <a href="#" class="add-address hover-btn" data-toggle="modal" data-target="#address_model">Add New Address</a>
+                                <div class="address-item">
+                                    <div class="address-icon1">
+                                        <i class="uil uil-home-alt"></i>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer p-0 border-0">
-                                <div class="col-6 m-0 p-0">
-                                    <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
+                                    <div class="address-dt-all">
+                                        <h4>Home</h4>
+                                        <p>#0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</p>
+                                        <ul class="action-btns">
+                                            <li><a href="#" class="action-btn"><i class="uil uil-edit"></i></a></li>
+                                            <li><a href="#" class="action-btn"><i class="uil uil-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
-                                <div class="col-6 m-0 p-0">
-                                    <button onClick={() => this.SaveAddress('insert', null)} type="button" class="btn btn-success btn-lg btn-block">Save changes</button>
+                                <div class="address-item">
+                                    <div class="address-icon1">
+                                        <i class="uil uil-home-alt"></i>
+                                    </div>
+                                    <div class="address-dt-all">
+                                        <h4>Office</h4>
+                                        <p>#0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</p>
+                                        <ul class="action-btns">
+                                            <li><a href="#" class="action-btn"><i class="uil uil-edit"></i></a></li>
+                                            <li><a href="#" class="action-btn"><i class="uil uil-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="address-item">
+                                    <div class="address-icon1">
+                                        <i class="uil uil-home-alt"></i>
+                                    </div>
+                                    <div class="address-dt-all">
+                                        <h4>Other</h4>
+                                        <p>#0000, St No. 8, Shahid Karnail Singh Nagar, MBD Mall, Frozpur road, Ludhiana, 141001</p>
+                                        <ul class="action-btns">
+                                            <li><a href="#" class="action-btn"><i class="uil uil-edit"></i></a></li>
+                                            <li><a href="#" class="action-btn"><i class="uil uil-trash-alt"></i></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
-
-
-
-
-
-
-
-                {this.state.UserAddressData.length ? (
-
-                    <>
-                        {this.state.UserAddressData.map((item, i) => {
-                            return (
-                                <div key={i + 12} class="modal fade EditAddressModal" tabindex="-1" id={"EditAddressModal" + i} role="dialog" aria-labelledby="EditAddressModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="EditAddressModalLabel">Edit Delivery Address</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form class="">
-                                                    <div class="form-row">
-
-                                                        <div class="col-md-12 form-group"><label class="form-label"> <label class="text-danger">*</label> Full Name</label>
-                                                            <input onChange={this.onChange} placeholder="First & Last Name" id="user_name" value={this.state.user_name} type="text" class="form-control" />
-                                                        </div>
-
-                                                        <div class="col-md-12 form-group"><label class="form-label"> <label class="text-danger">*</label> Mobile Number (10 Digit)</label>
-                                                            <input onChange={this.onChange} placeholder="10 Digit Mobile Number" id="user_mobile" value={this.state.user_mobile} type="tel" class="form-control" />
-                                                        </div>
-
-
-
-
-                                                        <React.Fragment>
-
-
-                                                            <div class="col-md-12 form-group">
-                                                                <label class="form-label"> <label class="text-danger">*</label> Area / Locality</label>
-                                                                <PlacesAutocomplete
-                                                                    value={this.state.address}
-                                                                    onChange={this.handleChange}
-                                                                    onSelect={this.handleSelect}
-                                                                    searchOptions={searchOptions}
-
-
-                                                                >
-
-                                                                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                                                                        <div>
-                                                                            <input
-
-                                                                                {...getInputProps({
-                                                                                    placeholder: 'E.g. Taramandal , Golghar , Mohaddipur',
-                                                                                    className: 'form-control',
-                                                                                })}
-                                                                            />
-                                                                            <div className="autocomplete-dropdown-container">
-                                                                                {loading && <div>Loading...</div>}
-                                                                                {suggestions.map(suggestion => {
-                                                                                    const className = suggestion.active
-                                                                                        ? 'list-group-item active'
-                                                                                        : 'list-group-item';
-                                                                                    // inline style for demonstration purpose
-                                                                                    const style = suggestion.active
-                                                                                        ? { cursor: 'pointer' }
-                                                                                        : { cursor: 'pointer' };
-                                                                                    return (
-                                                                                        <div class="list-group"
-                                                                                            {...getSuggestionItemProps(suggestion, {
-                                                                                                className,
-                                                                                                style,
-                                                                                            })}
-                                                                                        >
-                                                                                            <span>{suggestion.description}</span>
-                                                                                        </div>
-                                                                                    );
-                                                                                })}
-                                                                            </div>
-                                                                        </div>
-                                                                    )}
-
-                                                                </PlacesAutocomplete>
-
-
-
-
-
-
-
-
-
-                                                            </div>
-
-
-
-
-
-
-                                                        </React.Fragment>
-
-
-
-
-
-
-                                                        <label class="form-label">Locate your delivery address on map   <label class="text-danger"> - Move red location marker to your delivery address</label></label>
-                                                        <div class="container-fluid">
-                                                            <div class="map-responsive">
-
-                                                                <Map
-                                                                    google={window.google}
-                                                                    center={this.state.position}
-                                                                    zoom={this.state.zoom}
-                                                                    defaultZoom="Zoom"
-                                                                    initialCenter={{
-                                                                        lat: this.state.position.lat,
-                                                                        lng: this.state.position.lng
-                                                                    }}
-
-
-                                                                >
-
-                                                                    <Marker
-                                                                        position={this.state.position}
-                                                                        draggable={true}
-                                                                        onDragend={(t, map, coord) => this.onMarkerDragEnd(coord)}
-                                                                        name="Delivery Location"
-                                                                    // animation={window.google.maps.Animation.DROP}
-
-                                                                    />
-
-
-
-                                                                </Map>
-
-                                                            </div>
-                                                        </div>
-
-
-
-
-
-
-
-                                                        <div class="col-md-12 form-group">
-                                                        </div>
-
-
-                                                        <div class="col-md-12 form-group"><label class="form-label"> <label class="text-danger">*</label> Flat / House / Office No.</label>
-                                                            <input onChange={this.onChange} type="text" value={this.state.user_house_no} id="user_house_no" class="form-control" />
-                                                        </div>
-
-                                                        <div class="col-md-12 form-group"><label class="form-label"> <label class="text-danger">*</label> Street / Society / Office Name</label>
-                                                            <input type="text" onChange={this.onChange} value={this.state.user_street} id="user_street" class="form-control" />
-                                                        </div>
-
-
-
-
-
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer p-0 border-0">
-                                                <div class="col-6 m-0 p-0">
-                                                    <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
-                                                </div>
-                                                <div class="col-6 m-0 p-0">
-                                                    <button onClick={() => this.SaveAddress('update', item.address_id)} type="button" class="btn btn-success btn-lg btn-block">Update changes</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
-                            )
-                        })}
-                    </>
-
-
-                ) : null}
-
-
-                {this.state.UserAddressData.length ? (
-
-                    <>
-                        {this.state.UserAddressData.map((item, i) => {
-                            return (
-
-
-                                <div class="modal fade modal" id={"delete" + i} tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-sm modal-dialog-centered">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title modal" id="DeleteModalLabel">Delete</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body text-center d-flex align-items-center">
-                                                <div class="w-100 px-3">
-                                                    <i class="icofont-trash text-danger display-1 mb-5"></i>
-                                                    <h6>Are you sure you want to delete this?</h6>
-                                                    <p class="small text-muted m-0">{item.name} , {item.phone}</p>
-                                                    <p class="small text-muted m-0">{item.user_house_no} , {item.address}</p>
-                                                    <p class="small text-muted m-0">{item.base_address} , {item.city}</p>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer p-0 border-0">
-                                                <div class="col-6 m-0 p-0">
-                                                    <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
-                                                </div>
-                                                <div class="col-6 m-0 p-0">
-                                                    <button onClick={() => this.deleteAddress(item.address_id, i)} type="button" class="btn btn-danger btn-lg btn-block">Delete</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            )
-                        })}
-                    </>
-
-
-                ) : null
-                }
-
-
                 <ToastContainer />
-
             </>
-
-
-
-
-
         );
-
     }
 
     refreshSate() {

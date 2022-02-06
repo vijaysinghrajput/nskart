@@ -15,28 +15,29 @@ const AccountNavigatinMenu = (props) => {
 
     return (
         <>
-            <div class="col-lg-4" style={isNotSmallerScreen ? {} : { paddingBottom: "5rem" }}>
-                {!isNotSmallerScreen &&
-                    <div class="p-4 profile text-center border-bottom">
-                        <img src={UserData.provider_pic == null ? 'https://i.pinimg.com/736x/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.jpg' : UserData.provider_pic} class="img-fluid rounded-pill" />
-                        <h6 class="font-weight-bold m-0 mt-2">Askbootstrap</h6>
-                        <p class="small text-muted"><a href="https://askbootstrap.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6d040c00021e0c050c032d0a000c0401430e0200">[email&#160;protected]</a></p>
-                        <a href="javascript:void(0)" onClick={() => navigate("/account")} class="btn btn-success btn-sm"><i class="icofont-pencil-alt-5"></i> Edit Profile</a>
+            <div class="col-lg-3 col-md-4">
+                <div class="left-side-tabs">
+                    <div class="dashboard-left-links">
+                        {data.auth.isUserLogin && (
+                            <>
+                                <a href="#" onClick={() => navigate("/account")} class="user-item "><i class="uil uil-apps"></i>My Account</a>
+                                <a href="#" onClick={() => navigate("/orders")} class="user-item"><i class="uil uil-box"></i>My Orders</a>
+                                <a href="#" onClick={() => navigate("/address")} class="user-item"><i class="uil uil-location-point"></i>My Address</a>
+                                <a href="#" onClick={() => navigate("/offers")} class="user-item"><i class="uil uil-gift"></i>Offers</a>
+                                <a href="#" onClick={() => navigate("/condition")} class="user-item"><i class="uil uil-question-circle"></i>Conditions</a>
+                                <a href="#" onClick={() => navigate("/contact")} class="user-item"><i class="uil uil-phone"></i>Contact Us</a>
+                                <a href="sign_in.html" class="user-item"><i class="uil uil-exit"></i>Logout</a>
+                            </>
+                        )}
                     </div>
-                }
+                </div>
+            </div>
+            {/* <div class="col-lg-4" style={isNotSmallerScreen ? {} : { paddingBottom: "5rem" }}>
                 <div class="osahan-account bg-white rounded shadow-sm overflow-hidden">
-                    {isNotSmallerScreen &&
-                        <div class="p-4 profile text-center border-bottom">
-                            <img src={UserData.provider_pic == null ? 'https://i.pinimg.com/736x/ff/a0/9a/ffa09aec412db3f54deadf1b3781de2a.jpg' : UserData.provider_pic} class="img-fluid rounded-pill" />
-                            <h6 class="font-weight-bold m-0 mt-2" style={{ textTransform: 'capitalize' }}>{UserData.name}</h6>
-                        </div>
-                    }
                     <div class="account-sections">
                         <ul class="list-group">
-
                             {data.auth.isUserLogin && (
                                 <>
-
                                     <a href="#" onClick={() => navigate("/account")} class="text-decoration-none text-dark">
                                         <li class="border-bottom bg-white d-flex align-items-center p-3">
                                             <i class="icofont-user osahan-icofont bg-danger"></i>My Account
@@ -55,9 +56,7 @@ const AccountNavigatinMenu = (props) => {
                                             <span class="badge badge-success p-1 badge-pill ml-auto"><i class="icofont-simple-right"></i></span>
                                         </li>
                                     </a>
-
                                 </>
-
                             )}
                             <a href="#" onClick={() => navigate("/offers")} class="text-decoration-none text-dark">
                                 <li class="border-bottom bg-white d-flex align-items-center p-3">
@@ -97,7 +96,7 @@ const AccountNavigatinMenu = (props) => {
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 

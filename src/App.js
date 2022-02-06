@@ -11,6 +11,7 @@ import ProductsBySubcategoryPage from './page/ProductsBySubcategoryPage';
 import CartPage from './page/CartPage';
 import ProductDetailsPage from './page/ProductDetailsPage';
 import CategoryPage from './page/CategoryPage';
+import SubCategoryPage from './page/SubCategoryPage';
 import AccountPageApp from './page/AccountPageApp';
 import NotFoundPage from './page/NotFoundPage';
 
@@ -64,6 +65,8 @@ class App extends Component {
             <Route path="/verification" element={<Verification />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/category" element={<CategoryPage />} />
+            <Route path="/categories/:subcatID/:subcatName" element={<SubCategoryPage />} />
+
             <Route path="/search" element={<SearchPage />} />
             {this.state.subcategories.map((item, i) => {
               return (

@@ -35,7 +35,7 @@ export const SliderProducts = ({ data }) => {
 
     return (
         <>
-            <div class="product-item ">
+            <div class="product-item mb-30">
                 <a href="single_product_view.html" class="product-img">
                     <img src={URL + "/images/product-images/" + data.product_image} alt="" />
                     <div class="product-absolute-options">
@@ -51,7 +51,7 @@ export const SliderProducts = ({ data }) => {
                     <div className="qty-cart">
                         {!productData.itemQuant ? (
                             <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 8, marginLeft: "auto" }}>
-                                <BsFillCartPlusFill size="35" style={{ color: "#006200", cursor: "pointer", fontSize: 20 }} onClick={() =>
+                                <BsFillCartPlusFill size="20" style={{ color: "#006200", cursor: "pointer", fontSize: 20 }} onClick={() =>
                                     mainData.addToCart({
                                         ...data,
                                         itemQuant: 1,
@@ -60,18 +60,18 @@ export const SliderProducts = ({ data }) => {
                                 } />
                             </div>
                         ) : (
-                            <div class="plusMinusFun d-flex justify-content-between px-3 align-items-center">
+                            <div class="plusMinusFun plusMinusFunButton d-flex justify-content-between px-3 align-items-center">
                                 {productData.itemQuant === 1 ? (
                                     <BsFillCartXFill
-                                        size="30"
-                                        style={{ fontSize: 18, cursor: "pointer", color: "#f55d2c" }}
+                                        size="24"
+                                        style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#f55d2c" }}
                                         onClick={() =>
                                             mainData.removeFromCart(data.id)}
                                     />
                                 ) : (
                                     <AiOutlineMinus
-                                        size="30"
-                                        style={{ fontSize: 18, cursor: "pointer", color: "#454545" }}
+                                        size="24"
+                                        style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#454545" }}
                                         onClick={() => mainData.addToCart({
                                             ...data,
                                             itemQuant: productData.itemQuant - 1,
@@ -80,10 +80,10 @@ export const SliderProducts = ({ data }) => {
                                         })}
                                     />
                                 )}
-                                <h5 className="mb-0">{productData.itemQuant}</h5>
+                                <h5 className="m-0" style={{ fontSize: 20 }}>{productData.itemQuant}</h5>
                                 <AiOutlinePlus
-                                    size="30"
-                                    style={{ fontSize: 18, cursor: "pointer", color: "#454545" }}
+                                    size="24"
+                                    style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#454545" }}
                                     onClick={() =>
                                         mainData.addToCart({
                                             ...data,
