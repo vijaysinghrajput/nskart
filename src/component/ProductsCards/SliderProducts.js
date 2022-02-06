@@ -36,8 +36,10 @@ export const SliderProducts = ({ data }) => {
     return (
         <>
             <div class="product-item mb-30">
-                <a href="single_product_view.html" class="product-img">
-                    <img src={URL + "/images/product-images/" + data.product_image} alt="" />
+
+
+                <a href="#" class="product-img">
+                    <img style={{ width: '100%' }} border="0" src={URL + "/images/product-images/" + data.product_image} alt="" />
                     <div class="product-absolute-options">
 
                         {data.discount !== "0" && <span class="offer-badge-1">{Math.round(data.discount)} %</span>}

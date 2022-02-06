@@ -4,7 +4,7 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import URL from '../../URL';
 import ContextData from '../../context/MainContext';
 import { MdDelete } from 'react-icons/md';
-import { BsPlusLg } from 'react-icons/bs';
+import { BsPlusLg, BsFillCartPlusFill, BsFillCartXFill } from 'react-icons/bs';
 import { useDisclosure, Modal, ModalBody, ModalContent, ModalOverlay, ModalCloseButton, ModalFooter, Button, ModalHeader } from '@chakra-ui/react';
 
 export const BasicVegitableFruit = ({ data }) => {
@@ -35,97 +35,88 @@ export const BasicVegitableFruit = ({ data }) => {
 
     return (
         <>
-            <div class="col-6 col-md-3 mb-3">
-                <div
-                    class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                    <div class="list-card-image">
-                        {data.discount !== "0" && <div class="member-plan position-absolute"><span
-                            class="badge m-3 badge-danger">{data.discount} %</span></div>}
-                        <div class="p-3">
-                            <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}>
-                                <img onClick={onOpen} src={URL + "/images/product-images/" + data.product_image}
-                                    class="img-fluid item-img w-100 mb-3"
-                                    alt={data.product_name + " in Gorakhpur | SuperG.in is an online vegetable, fruit, cake ,chicken, and grocery delivery website and app in Gorakhpur , Which deliver you home at very low prices. Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
-                                    title={data.product_name + " delivery in Gorakhpur | Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
 
-                                />
-                                <h6 style={{ color: "#000" }}>{data.product_name}</h6>
-                            </Link>
-                            <div class="d-flex align-items-center">
-                                <h6 class="price m-0 text-success">₹{Math.round((data.price) - ((data.price) * (data.discount / 100)))}/{data.product_size + data.product_unit}</h6>
-                                <div className="ml-auto plus-minus-container">
-                                    <div>
-                                        {!productData.itemQuant ? (
-                                            <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 8, marginLeft: "auto" }}>
-                                                <BsPlusLg style={{ color: "#454545", cursor: "pointer", fontSize: 18 }} onClick={() =>
-                                                    mainData.addToCart({
-                                                        ...data,
-                                                        itemQuant: 1,
-                                                        cartId: data.id
-                                                    })
-                                                } />
-                                            </div>
-                                        ) : (
-                                            <div class="plusMinusFun d-flex justify-content-between px-3 align-items-center">
-                                                {productData.itemQuant === 1 ? (
-                                                    <MdDelete
-                                                        style={{ fontSize: 18, cursor: "pointer", color: "#454545" }}
-                                                        onClick={() =>
-                                                            mainData.removeFromCart(data.id)}
-                                                    />
-                                                ) : (
-                                                    <AiOutlineMinus
-                                                        style={{ fontSize: 18, cursor: "pointer", color: "#454545" }}
-                                                        onClick={() => mainData.addToCart({
-                                                            ...data,
-                                                            itemQuant: productData.itemQuant - 1,
-                                                            price: productData.price - data.price,
-                                                            cartId: data.id
-                                                        })}
-                                                    />
-                                                )}
-                                                <h5 className="mb-0">{productData.itemQuant}</h5>
-                                                <AiOutlinePlus
-                                                    style={{ fontSize: 18, cursor: "pointer", color: "#454545" }}
-                                                    onClick={() =>
-                                                        mainData.addToCart({
-                                                            ...data,
-                                                            itemQuant: productData.itemQuant + 1,
-                                                            price: parseInt(productData.price) + parseInt(data.price),
-                                                            cartId: data.id
-                                                        })
-                                                    }
-                                                />
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
+            <div className="col-6 col-md-3 mb-3">
+
+                <div class="product-item mb-30">
+
+
+                    <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}
+                        class="product-img">
+                        <img style={{ width: '100%' }} border="0" src={URL + "/images/product-images/" + data.product_image} alt="" />
+                        <div class="product-absolute-options">
+
+                            {data.discount !== "0" && <span class="offer-badge-1">{Math.round(data.discount)} %</span>}
+
                         </div>
+                    </Link>
+                    <div class="product-text-dt">
+                        <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}
+                        >
+
+                            <h4>{data.product_name.substring(0, 20)} {data.product_size + data.product_unit}</h4>
+                            <div class="product-price">₹{Math.round((data.price) - ((data.price) * (data.discount / 100)))} <span>₹{Math.round(data.price)}</span></div>
+
+                        </Link>
+                        <div className="qty-cart">
+                            {!productData.itemQuant ? (
+                                <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 8, marginLeft: "auto" }}>
+                                    <BsFillCartPlusFill size="20" style={{ color: "#006200", cursor: "pointer", fontSize: 20 }} onClick={() =>
+                                        mainData.addToCart({
+                                            ...data,
+                                            itemQuant: 1,
+                                            cartId: data.id
+                                        })
+                                    } />
+                                </div>
+                            ) : (
+                                <div class="plusMinusFun plusMinusFunButton d-flex justify-content-between px-3 align-items-center">
+                                    {productData.itemQuant === 1 ? (
+                                        <BsFillCartXFill
+                                            size="24"
+                                            style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#f55d2c" }}
+                                            onClick={() =>
+                                                mainData.removeFromCart(data.id)}
+                                        />
+                                    ) : (
+                                        <AiOutlineMinus
+                                            size="24"
+                                            style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#454545" }}
+                                            onClick={() => mainData.addToCart({
+                                                ...data,
+                                                itemQuant: productData.itemQuant - 1,
+                                                price: productData.price - data.price,
+                                                cartId: data.id
+                                            })}
+                                        />
+                                    )}
+                                    <h5 className="m-0" style={{ fontSize: 20 }}>{productData.itemQuant}</h5>
+                                    <AiOutlinePlus
+                                        size="24"
+                                        style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#454545" }}
+                                        onClick={() =>
+                                            mainData.addToCart({
+                                                ...data,
+                                                itemQuant: productData.itemQuant + 1,
+                                                price: parseInt(productData.price) + parseInt(data.price),
+                                                cartId: data.id
+                                            })
+                                        }
+                                    />
+                                </div>
+                            )}
+                        </div>
+
+
+
+
+
+
                     </div>
                 </div>
-                <Modal
-                    isCentered
-                    onClose={onClose}
-                    isOpen={isOpen}
-                    motionPreset='slideInBottom'
-                >
-                    <ModalOverlay />
-                    <ModalContent>
-                        <ModalHeader>{data.product_name}</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur a assumenda iure voluptates tempora quibusdam quidem nesciunt beatae quas itaque asperiores ipsum hic iusto saepe sequi, corrupti debitis corporis minima.
-                        </ModalBody>
-                        <ModalFooter>
-                            <Button colorScheme='blue' mr={3} onClick={onClose}>
-                                Close
-                            </Button>
-                            <Button variant='ghost'>Secondary Action</Button>
-                        </ModalFooter>
-                    </ModalContent>
-                </Modal>
+
             </div>
+
         </>
     )
 
