@@ -53,10 +53,10 @@ const CategoryPopup = (props) => {
                                                     <Link
                                                         state={location.pathname}
                                                         class="single-cat-item"
-                                                        to={"/" + (item.name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + item.id + "/" + item.name}>
+                                                        to={"/categories/" + item.id + "/" + item.name}>
                                                         <div class="icon">
                                                             <img src={URL + "/images/category_images/" + item.image}
-                                                                alt={item.name + " in Gorakhpur | SuperG.in is an online vegetable, fruit, cake ,chicken, and grocery delivery website and app in Gorakhpur , Which deliver you home at very low prices. Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
+                                                                alt={item.name + " in Gorakhpur | NsKart is an online vegetable, fruit, cake ,chicken, and grocery delivery website and app in Gorakhpur , Which deliver you home at very low prices. Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
                                                                 title={item.name + " delivery in Gorakhpur | Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
                                                             />
                                                         </div>

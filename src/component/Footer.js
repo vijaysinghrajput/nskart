@@ -7,202 +7,159 @@ import MainData from '../context/MainContext';
 const Footer = () => {
     const data = useContext(MainData);
 
-    const { subcategories } = data;
+    const { categories } = data;
 
     const navigate = useNavigate();
 
 
     return (
         <>
-            <footer class="section-footer border-top bg-white">
-                <section class="footer-top py-4">
+            <footer class="footer">
+                <div class="footer-first-row">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-inline">
-                                    <select class="custom-select mr-2">
-                                        <option>INR</option>
-
-                                    </select>
-                                    <select class="custom-select">
-                                        <option>INDIA</option>
-
-                                    </select>
-                                </div>
-
-                            </div>
-                            <div class="col-md-4">
-                            </div>
-                            <div class="col-md-4 text-md-right">
-                                <a href="#" class="btn btn-icon btn-light"><i class="icofont-facebook"></i></a>
-                                <a href="#" class="btn btn-icon btn-light"><i class="icofont-twitter"></i></a>
-                                <a href="#" class="btn btn-icon btn-light"><i class="icofont-instagram"></i></a>
-                                <a href="#" class="btn btn-icon btn-light"><i class="icofont-youtube"></i></a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <section class="footer-main border-top pt-5 pb-4">
-                    <div class="container">
-                        <div class="row">
-                            <aside class="col-md">
-                                <h6 class="title">Category</h6>
-                                <ul class="list-unstyled list-padding">
-                                    {subcategories.length ? (
-                                        < >
-                                            {subcategories.map((item, i) => {
-                                                return (
-
-                                                    <Link to={"/" + (item.name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + item.id + "/" + item.name}>
-                                                        <li>
-                                                            <a href="#" class="text-dark">{item.name}</a>
-                                                        </li>
-                                                    </Link>
-
-                                                )
-                                            })}
-                                        </>
-                                    ) : null}
+                            <div class="col-md-6 col-sm-6">
+                                <ul class="call-email-alt">
+                                    <li><a href="#" class="callemail"><i class="uil uil-dialpad-alt"></i>1800-000-000</a></li>
+                                    <li><a href="#" class="callemail"><i class="uil uil-envelope-alt"></i>info@gambosupermarket.com</a></li>
                                 </ul>
-                            </aside>
-
-                            <aside class="col-md">
-                                <h6 class="title">Important Links</h6>
-                                <ul class="list-unstyled list-padding">
-                                    <li> <a href="#" onClick={() => navigate("/about")} class="text-dark"> About   </a></li>
-                                    <li> <a href="#" onClick={() => navigate("/offers")} class="text-dark">Offers</a></li>
-                                    <li> <a href="#" onClick={() => navigate("/treding")} class="text-dark">Treding</a></li>
-                                    <li> <a href="#" onClick={() => navigate("/contact")} class="text-dark">Contact Us</a></li>
-
-                                </ul>
-                            </aside>
-
-                            <aside class="col-md">
-                                <h6 class="title">Corporate</h6>
-                                <ul class="list-unstyled list-padding">
-
-                                    <li>
-                                        <a href="#" onClick={() => navigate("/term-and-condition")} class="text-dark">  Term & Condition   </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick={() => navigate("/privacy-and-policy")} class="text-dark">  Privacy & Policy   </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick={() => navigate("/shipping-policy")} class="text-dark">   Shipping Policy   </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick={() => navigate("/return-and-refund-policy")} class="text-dark">  Return &  Refund Policy   </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" onClick={() => navigate("/faq")} class="text-dark"> FAQ   </a>
-                                    </li>
-                                </ul>
-                            </aside>
-                        </div>
-
-                    </div>
-
-                </section>
-
-                <section class="footer-bottom border-top py-4">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <span class="pr-2">© 2021 Powerd By Skyably IT Solution</span>
-
                             </div>
-                            <div class="col-md-6 text-md-right">
-                                <a href="#"><img src="/img/appstore.png" height="30" /></a>
-                                <a href="#"><img src="/img/playmarket.png" height="30" /></a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </section>
-
-            </footer>
-
-            <div class="modal fade right-modal" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header p-0">
-                            <nav class="schedule w-100">
-                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    <a class="nav-link active col-5 py-4" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                                        role="tab" aria-controls="nav-home" aria-selected="true">
-                                        <p class="mb-0 font-weight-bold">Sign in</p>
-                                    </a>
-                                    <a class="nav-link col-5 py-4" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
-                                        role="tab" aria-controls="nav-profile" aria-selected="false">
-                                        <p class="mb-0 font-weight-bold">Sign up</p>
-                                    </a>
-                                    <a class="nav-link col-2 p-0 d-flex align-items-center justify-content-center"
-                                        data-dismiss="modal" aria-label="Close">
-                                        <h1 class="m-0 h4 text-dark"><i class="icofont-close-line"></i></h1>
-                                    </a>
+                            <div class="col-md-6 col-sm-6">
+                                <div class="social-links-footer">
+                                    <ul>
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                        <li><a href="#"><i class="fab fa-pinterest-p"></i></a></li>
+                                    </ul>
                                 </div>
-                            </nav>
-                        </div>
-                        <div class="modal-body p-0">
-                            <div class="tab-content" id="nav-tabContent">
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                    aria-labelledby="nav-home-tab">
-                                    <div class="osahan-signin p-4 rounded">
-                                        <div class="p-2">
-                                            <h2 class="my-0">Welcome Back</h2>
-                                            <p class="small mb-4">Sign in to Continue.</p>
-
-                                            <p class="text-muted text-center small m-0 py-3">or</p>
-                                            <a href="verification.html" class="btn btn-dark btn-block rounded btn-lg btn-apple">
-                                                <i class="icofont-brand-apple mr-2"></i> Sign up with Apple
-                                            </a>
-                                            <a href="verification.html"
-                                                class="btn btn-light border btn-block rounded btn-lg btn-google">
-                                                <i class="icofont-google-plus text-danger mr-2"></i> Sign up with Google
-                                            </a>
-                                            <p class="text-center mt-3 mb-0"><a href="signup.html" class="text-dark">Don't have
-                                                an account? Sign up</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                                    <div class="osahan-signup bg-white p-4">
-                                        <div class="p-2">
-                                            <h2 class="my-0">Let's get started</h2>
-                                            <p class="small mb-4">Create account to see our top picks for you!</p>
-                                            <p class="text-muted text-center small py-2 m-0">or</p>
-                                            <a href="verification.html" class="btn btn-dark btn-block rounded btn-lg btn-apple">
-                                                <i class="icofont-brand-apple mr-2"></i> Sign up with Apple
-                                            </a>
-                                            <a href="verification.html"
-                                                class="btn btn-light border btn-block rounded btn-lg btn-google">
-                                                <i class="icofont-google-plus text-danger mr-2"></i> Sign up with Google
-                                            </a>
-                                            <p class="text-center mt-3 mb-0"><a href="signin.html" class="text-dark">Already
-                                                have an account! Sign in</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer p-0 border-0">
-                            <div class="col-6 m-0 p-0">
-                                <a href="#" class="btn border-top border-right btn-lg btn-block" data-dismiss="modal">Close</a>
-                            </div>
-                            <div class="col-6 m-0 p-0">
-                                <a href="help_support.html" class="btn border-top btn-lg btn-block">Help</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="footer-second-row">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="second-row-item">
+                                    <h4>Categories</h4>
+                                    <ul>
+
+                                        {categories.length ? (
+                                            < >
+                                                {categories.map((item, i) => {
+                                                    return (
+
+                                                        <Link to={"/categories/" + item.id + "/" + item.name}>
+                                                            <li>
+                                                                <a href="#" >{item.name}</a>
+                                                            </li>
+                                                        </Link>
+
+                                                    )
+                                                })}
+                                            </>
+                                        ) : null}
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="second-row-item">
+                                    <h4>Useful Links</h4>
+                                    <ul>
+                                        <li> <a href="#" onClick={() => navigate("/about")} class="text-dark"> About   </a></li>
+                                        <li> <a href="#" onClick={() => navigate("/offers")} class="text-dark">Offers</a></li>
+                                        <li> <a href="#" onClick={() => navigate("/treding")} class="text-dark">Treding</a></li>
+                                        <li> <a href="#" onClick={() => navigate("/contact")} class="text-dark">Contact Us</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="second-row-item">
+                                    <h4>Corporate</h4>
+                                    <ul>
+                                        <li>
+                                            <a href="#" onClick={() => navigate("/term-and-condition")} class="text-dark">  Term & Condition   </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onClick={() => navigate("/privacy-and-policy")} class="text-dark">  Privacy & Policy   </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onClick={() => navigate("/shipping-policy")} class="text-dark">   Shipping Policy   </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onClick={() => navigate("/return-and-refund-policy")} class="text-dark">  Return &  Refund Policy   </a>
+                                        </li>
+                                        <li>
+                                            <a href="#" onClick={() => navigate("/faq")} class="text-dark"> FAQ   </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <div class="second-row-item-app">
+                                    <h4>Download App</h4>
+                                    <ul>
+                                        <li><a href="#"><img class="download-btn" src="/images/download-1.svg" alt="" /></a></li>
+                                        <li><a href="#"><img class="download-btn" src="/images/download-2.svg" alt="" /></a></li>
+                                    </ul>
+                                </div>
+                                <div class="second-row-item-payment">
+                                    <h4>Payment Method</h4>
+                                    <div class="footer-payments">
+                                        <ul id="paypal-gateway" class="financial-institutes">
+                                            <li class="financial-institutes__logo">
+                                                <img alt="Visa" title="Visa" src="/images/footer-icons/pyicon-6.svg" />
+                                            </li>
+                                            <li class="financial-institutes__logo">
+                                                <img alt="Visa" title="Visa" src="/images/footer-icons/pyicon-1.svg" />
+                                            </li>
+                                            <li class="financial-institutes__logo">
+                                                <img alt="MasterCard" title="MasterCard" src="/images/footer-icons/pyicon-2.svg" />
+                                            </li>
+                                            <li class="financial-institutes__logo">
+                                                <img alt="American Express" title="American Express" src="/images/footer-icons/pyicon-3.svg" />
+                                            </li>
+                                            <li class="financial-institutes__logo">
+                                                <img alt="Discover" title="Discover" src="/images/footer-icons/pyicon-4.svg" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="second-row-item-payment">
+                                    <h4>Newsletter</h4>
+                                    <div class="newsletter-input">
+                                        <input id="email" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="" />
+                                        <button class="newsletter-btn hover-btn" type="submit"><i class="uil uil-telegram-alt"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-last-row">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="footer-bottom-links">
+
+                                </div>
+                                <div class="copyright-text">
+                                    <i class="uil uil-copyright"></i>Copyright 2022 <b>NSKART</b> . All rights reserved
+						</div>
+                                <div class="copyright-text">
+                                    <i class="uil uil-company"></i>Design & Developed By  <a>Skyably IT Solution</a> .
+						</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </>
     );
 }

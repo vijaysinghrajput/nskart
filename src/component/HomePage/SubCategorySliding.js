@@ -52,7 +52,7 @@ const SubCategorySliding = (props) => {
                 items: 6
             },
             1000: {
-                items: 10
+                items: 8
             }
         }
     };
