@@ -17,6 +17,9 @@ const Category = (props) => {
     const [categories, Setcategories] = useState([]);
 
     useEffect(() => {
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
         Setcategories(data.categories);
     }, [data.categories]);
 
