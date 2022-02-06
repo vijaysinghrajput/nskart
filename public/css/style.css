@@ -536,7 +536,7 @@ i.icon1 {
     height: 35px;
     width: 35px;
     display: inline-block;
-    padding: 10px 5px;
+    padding: 5px;
     border-radius: 100%;
 }
 
@@ -546,7 +546,7 @@ i.icon1 {
     height: 35px;
     width: 35px;
     display: inline-block;
-    padding: 10px 5px;
+    padding: 5px;
     border-radius: 100%;
 }
 
@@ -1765,6 +1765,8 @@ i.icon1 {
 .wrapper {
     padding-top: 128px;
 	padding-bottom: 50px;
+    max-width: 85%;
+    margin: auto;
 }
 
 .wrapper-blog {
@@ -4295,7 +4297,7 @@ label.control-label {
     display: inline-block;
     background: #f55d2c;
     border-radius: 100%;
-    padding: 11px 0;
+    padding: 6px 0;
 }
 
 .tt-icon i {
@@ -6606,4 +6608,22 @@ textarea {
 
 .dropdown-item:focus, .dropdown-item:hover {
     color: #2b2f4c;
+}
+
+iframe {
+    pointer-events: none;
+}
+
+.product-img > img {
+    height: 270px;
+}
+
+.plusMinusFunButton {
+    border-radius: 8px;
+    background-color: #efefef;
+    padding: 5px;
+}
+
+.osahan-main-body {
+    padding-top: 11rem;
 }

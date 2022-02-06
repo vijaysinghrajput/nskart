@@ -65,7 +65,7 @@ const Promo = (props) => {
         <>
             <div class="py-3 osahan-promos">
                 <div class="d-flex align-items-center mb-3">
-                    <h5 class="m-0">Promos for you</h5>
+                    <h5 class="mb-3" style={{ fontSize: 24 }}>Promos for you</h5>
                 </div>
                 {data.isLoading ? <>
                     <PromoLoading />

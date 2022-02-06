@@ -39,18 +39,10 @@ const NavHeader = (props) => {
                             <div class="collapse navbar-collapse d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end bg-dark1 p-3 p-lg-0 mt1-5 mt-lg-0 mobileMenu" id="navbarSupportedContent">
                                 <ul class="navbar-nav main_nav align-self-stretch">
                                     <li class="nav-item"><a href="index.html" class="nav-link active" title="Home">Home</a></li>
-                                    <li class="nav-item"><a href="index.html" class="nav-link active" title="Home">About Us</a></li>
+                                    <li class="nav-item"><a href="index.html" class="nav-link" title="Home">About Us</a></li>
                                     <li class="nav-item"><a href="index.html" class="nav-link " title="Home">Offers</a></li>
                                     <li class="nav-item"><a href="index.html" class="nav-link " title="Home">Trending Products</a></li>
                                     <li class="nav-item"><a href="index.html" class="nav-link " title="Home">Contact Us</a></li>
-
-
-
-
-
-
-
-
                                 </ul>
                             </div>
                         </div>

@@ -21,6 +21,7 @@ const Banner = (props) => {
         autoplayHoverPause: true,
         loop: true,
         margin: 10,
+        stagePadding: 40,
         nav: false,
         dots: true,
         responsive: {
@@ -28,7 +29,7 @@ const Banner = (props) => {
                 items: 1
             },
             600: {
-                items: 2
+                items: 3
             }
         }
     };

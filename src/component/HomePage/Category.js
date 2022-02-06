@@ -27,7 +27,7 @@ const Category = (props) => {
                 {console.log(location.pathname)}
                 {location.pathname !== "/category" &&
                     <div class="d-flex align-items-center mb-2">
-                        <h5 class="m-0">Shop By Category</h5>
+                        <h5 class="mb-3" style={{ fontSize: 24 }}>Shop By Category</h5>
 
                     </div>
                 }
@@ -53,7 +53,7 @@ const Category = (props) => {
                                                         title={item.name + " delivery in Gorakhpur | Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
 
                                                     />
-                                                    <a class="small-reward-dt hover-btn" >{item.name}</a>
+                                                    <a class="small-reward-dt hover-btn p-2" style={{ color: "#fff", whiteSpace: "nowrap", textOverflow: 'ellipsis', overflow: 'hidden', textAlign: "center" }}>{item.name}</a>
                                                 </Link>
                                             </div>
                                         </div>

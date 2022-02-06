@@ -107,6 +107,10 @@ const Login = () => {
                 <div class="container containerLogin">
                     <div class="row d-flex align-items-center justify-content-center vh-100">
                         <div class="col-lg-6">
+                            <div class="sign-logo mb-5" id="logo">
+                                <a href="index.html"><img src="/images/logo.svg" alt="" /></a>
+                                <a href="index.html"><img class="logo-inverse" src="/images/dark-logo.svg" alt="" /></a>
+                            </div>
                             <div class="osahan-signin shadow-sm bg-white p-4 rounded vh-sm-100">
                                 <div class="p-3">
                                     <h2 class="my-0">Welcome Back</h2>
@@ -121,11 +125,12 @@ const Login = () => {
                                             <Button
                                                 isLoading
                                                 loadingText='Sending OTP'
-                                                class="btn btn-success btn-lg rounded d-flex align-items-center justify-content-center w-100"
+                                                class="btn btn-lg rounded d-flex align-items-center justify-content-center w-100"
+                                                backgroundColor={"#f55d2a"}
                                                 variant='outline'
                                             />
                                         ) : (
-                                            <button type="button" disabled={isPhoneValid} onClick={() => sendOTP()} class="btn btn-success btn-lg rounded btn-block">Send Otp</button>
+                                            <button type="button" style={{ background: "#f55d2a", color: "#fff" }} disabled={isPhoneValid} onClick={() => sendOTP()} class="btn btn-lg rounded btn-block">Send Otp</button>
                                         )}
                                     </form>
                                     {/* <p class="text-muted text-center small m-0 py-3">or</p>
