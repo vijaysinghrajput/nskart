@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState, useRef } from 'react';
 import contextData from '../../context/MainContext';
-import URL from '../../URL';
+import { URL, constants } from '../../URL';
 import { useMediaQuery } from '@chakra-ui/react';
 // import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
@@ -58,17 +58,15 @@ const TopHead = ({ setSearchTerm, onFocus, onBlur, focused, searchedProduct, wra
                     <div class="header_right">
                         <ul>
                             <li>
-                                <a href="#" class="offer-link"><i class="uil uil-phone-alt"></i>1800-000-000</a>
+                                <a class="offer-link"><i class="uil uil-phone-alt"></i>{constants.phone}</a>
                             </li>
                             <li>
-                                <a href="offers.html" class="offer-link"><i class="uil uil-gift"></i>Offers</a>
+                                <a href="#" onClick={() => navigate("/offers")} class="offer-link"><i class="uil uil-gift"></i>Offers</a>
                             </li>
                             <li>
-                                <a href="faq.html" class="offer-link"><i class="uil uil-question-circle"></i>Help</a>
+                                <a onClick={() => navigate("/faq")} href="#" class="offer-link"><i class="uil uil-question-circle"></i>Help</a>
                             </li>
-                            <li>
-                                <a href="dashboard_my_wishlist.html" class="option_links" title="Wishlist"><i class='uil uil-heart icon_wishlist'></i><span class="noti_count1">3</span></a>
-                            </li>
+
                             <li class="ui dropdown" tabIndex="0">
                                 <a href="#" class="opts_account">
                                     <img src="images/avatar/img-5.jpg" alt="" />

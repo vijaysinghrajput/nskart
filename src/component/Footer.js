@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import MainData from '../context/MainContext';
 
+import { constants } from '../URL';
+
 
 const Footer = () => {
     const data = useContext(MainData);
@@ -20,8 +22,10 @@ const Footer = () => {
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
                                 <ul class="call-email-alt">
-                                    <li><a href="#" class="callemail"><i class="uil uil-dialpad-alt"></i>1800-000-000</a></li>
-                                    <li><a href="#" class="callemail"><i class="uil uil-envelope-alt"></i>info@gambosupermarket.com</a></li>
+                                    <li><a href="#" class="callemail"><i class="uil uil-dialpad-alt"></i>{constants.phone}</a></li>
+                                    <li>
+                                        <a class="callemail" href={`mailto:${constants.email}`}><i class="uil uil-envelope-alt"></i> {constants.email}</a>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="col-md-6 col-sm-6">
@@ -106,7 +110,7 @@ const Footer = () => {
                                     <h4>Download App</h4>
                                     <ul>
                                         <li><a href="#"><img class="download-btn" src="/images/download-1.svg" alt="" /></a></li>
-                                        <li><a href="#"><img class="download-btn" src="/images/download-2.svg" alt="" /></a></li>
+                                        {/* <li><a href="#"><img class="download-btn" src="/images/download-2.svg" alt="" /></a></li> */}
                                     </ul>
                                 </div>
                                 <div class="second-row-item-payment">
@@ -131,13 +135,7 @@ const Footer = () => {
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="second-row-item-payment">
-                                    <h4>Newsletter</h4>
-                                    <div class="newsletter-input">
-                                        <input id="email" name="email" type="text" placeholder="Email Address" class="form-control input-md" required="" />
-                                        <button class="newsletter-btn hover-btn" type="submit"><i class="uil uil-telegram-alt"></i></button>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
