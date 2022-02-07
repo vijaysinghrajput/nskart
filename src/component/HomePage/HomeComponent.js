@@ -38,7 +38,7 @@ const HomeComponent = (props) => {
 
                 <Promo />
 
-                {/* <TodayPicks /> */}
+                <TodayPicks />
 
             </OshanContainer>
         </>

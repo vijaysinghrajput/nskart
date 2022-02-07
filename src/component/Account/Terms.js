@@ -18,7 +18,7 @@ const Terms = ({ conditionTitel, conditionData }) => {
             />
 
 
-            <React.Fragment>
+            <React.Fragment class="">
                 {location.pathname == '/faq' ?
 
                     (

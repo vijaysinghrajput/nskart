@@ -18,7 +18,7 @@ const AccountNavigatinMenu = (props) => {
             <div class="col-lg-3 col-md-4">
                 <div class="left-side-tabs">
                     <div class="dashboard-left-links">
-                        {data.auth.isUserLogin && (
+                        {data.auth.isUserLogin ? (
                             <>
                                 <a href="#" onClick={() => navigate("/account")} class="user-item "><i class="uil uil-apps"></i>My Account</a>
                                 <a href="#" onClick={() => navigate("/orders")} class="user-item"><i class="uil uil-box"></i>My Orders</a>
@@ -26,9 +26,16 @@ const AccountNavigatinMenu = (props) => {
                                 <a href="#" onClick={() => navigate("/offers")} class="user-item"><i class="uil uil-gift"></i>Offers</a>
                                 <a href="#" onClick={() => navigate("/condition")} class="user-item"><i class="uil uil-question-circle"></i>Conditions</a>
                                 <a href="#" onClick={() => navigate("/contact")} class="user-item"><i class="uil uil-phone"></i>Contact Us</a>
-                                <a href="sign_in.html" class="user-item"><i class="uil uil-exit"></i>Logout</a>
+                                <a href="#" onClick={() => logOut()} class="user-item"><i class="uil uil-exit"></i>Logout</a>
                             </>
-                        )}
+                        ) :
+                            (
+                                <div>
+                                    <a href="#" onClick={() => navigate("/offers")} class="user-item"><i class="uil uil-gift"></i>Offers</a>
+                                    <a href="#" onClick={() => navigate("/condition")} class="user-item"><i class="uil uil-question-circle"></i>Conditions</a>
+                                    <a href="#" onClick={() => navigate("/contact")} class="user-item"><i class="uil uil-phone"></i>Contact Us</a>
+                                </div>
+                            )}
                     </div>
                 </div>
             </div>

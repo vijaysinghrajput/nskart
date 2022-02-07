@@ -17,6 +17,8 @@ const Category = (props) => {
     const [categories, Setcategories] = useState([]);
 
     useEffect(() => {
+
+        // window.scrollTo({ top: 0, behavior: 'smooth' });
         Setcategories(data.categories);
     }, [data.categories]);
 
@@ -43,7 +45,7 @@ const Category = (props) => {
                         < >
                             {categories.map((item, i) => {
                                 return (
-                                    <div class="col-4 col-lg-2 col-md-3 mb-3">
+                                    <div class="col-6 col-lg-3 col-md-4 mb-3">
                                         <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                             <div class="p-4">
 

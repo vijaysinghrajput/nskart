@@ -41,8 +41,8 @@ const ContactUs = (props) => {
                 <div class="help_support">
                     <div className="address_contact">
                         <h5>Address :</h5>
-                        <p>281 B Bhardwajpuram, Rustampur, Gorakhpur <br /> 273016</p>
-                        <p>Call Us @ <br /> <a href="tel:6391000414">6391000414</a> <br /> <a href="tel:6391000415">6391000415</a> <br /> <a href="tel:6391000416">6391000416</a></p>
+                        <p>Rajiv Nagar Colony Near Gala Mandi, Gorakhpur <br /> 273016</p>
+                        <p>Call Us @ <br /> <a href="tel:6391000414">6306487017</a></p>
                         <p>Whatsapp @ <br /> <a href={`https://api.whatsapp.com/send?text=Hello World!&phone=${constants.phone}`}>{constants.phone}</a></p>
                         <p>Email @ <br /> <a href={`mailto:${constants.email}`}>{constants.email}</a></p>
                     </div>

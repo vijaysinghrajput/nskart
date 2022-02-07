@@ -36,22 +36,31 @@ export const SliderProducts = ({ data }) => {
     return (
         <>
             <div class="product-item mb-30">
-                <a href="single_product_view.html" class="product-img">
-                    <img src={URL + "/images/product-images/" + data.product_image} alt="" />
+
+
+                <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}
+                    class="product-img">
+                    <img style={{ maxWidth: 100, maxHeight: 100 }} border="0" src={URL + "/images/product-images/" + data.product_image} alt="" />
                     <div class="product-absolute-options">
 
                         {data.discount !== "0" && <span class="offer-badge-1">{Math.round(data.discount)} %</span>}
 
                     </div>
-                </a>
-                <div class="product-text-dt">
+                </Link>
 
-                    <h4>{data.product_name.substring(0, 20)} {data.product_size + data.product_unit}</h4>
-                    <div class="product-price">₹{Math.round((data.price) - ((data.price) * (data.discount / 100)))} <span>₹{Math.round(data.price)}</span></div>
-                    <div className="qty-cart">
+                <div class="product-text-dt">
+                    <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}
+                    >
+
+                        <h6 style={{ color: 'black' }}>{data.product_name.substring(0, 25)} {data.product_size + data.product_unit}</h6>
+                        <div class="product-price">₹{Math.round((data.price) - ((data.price) * (data.discount / 100)))} <span>₹{Math.round(data.price)}</span></div>
+
+                    </Link>
+
+                    <div className="my-2">
                         {!productData.itemQuant ? (
                             <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 8, marginLeft: "auto" }}>
-                                <BsFillCartPlusFill size="20" style={{ color: "#006200", cursor: "pointer", fontSize: 20 }} onClick={() =>
+                                <BsFillCartPlusFill size="24" style={{ color: "#1f1f1f", cursor: "pointer", fontSize: 20 }} onClick={() =>
                                     mainData.addToCart({
                                         ...data,
                                         itemQuant: 1,
@@ -64,14 +73,14 @@ export const SliderProducts = ({ data }) => {
                                 {productData.itemQuant === 1 ? (
                                     <BsFillCartXFill
                                         size="24"
-                                        style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#f55d2c" }}
+                                        style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#0a0a0a" }}
                                         onClick={() =>
                                             mainData.removeFromCart(data.id)}
                                     />
                                 ) : (
                                     <AiOutlineMinus
                                         size="24"
-                                        style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#454545" }}
+                                        style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#1f1f1f" }}
                                         onClick={() => mainData.addToCart({
                                             ...data,
                                             itemQuant: productData.itemQuant - 1,
@@ -83,7 +92,7 @@ export const SliderProducts = ({ data }) => {
                                 <h5 className="m-0" style={{ fontSize: 20 }}>{productData.itemQuant}</h5>
                                 <AiOutlinePlus
                                     size="24"
-                                    style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#454545" }}
+                                    style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#1f1f1f" }}
                                     onClick={() =>
                                         mainData.addToCart({
                                             ...data,

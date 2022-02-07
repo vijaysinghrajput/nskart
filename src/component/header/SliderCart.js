@@ -1,24 +1,27 @@
-import React, { useContext, useEffect, useState } from 'react';
-import contextData from '../../context/MainContext';
-import URL from '../../URL';
-import { useMediaQuery } from '@chakra-ui/react';
-// import OwlCarousel from 'react-owl-carousel';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
-import { Link, useLocation } from 'react-router-dom';
-import { CategoryLoading } from '../Loaders/SkeletonLoader';
+import React, { useContext, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import MainContext from '../../context/MainContext';
+import { CartSliderItems } from '../ProductsCards/CartSliderItems';
 
 
 const SliderCart = (props) => {
 
-    const data = useContext(contextData);
-    const [isNotSmallerScreen] = useMediaQuery("(min-width:1024px)");
+    const data = useContext(MainContext);
+    const { cartItems, auth } = data;
+    const navigation = useNavigate();
     const location = useLocation();
-    const [categories, Setcategories] = useState([]);
+    const GetTotal = cartItems.reduce(function (a, b) {
+        return a + Number(b["price"] * b["itemQuant"]);
+    }, 0);
+
+    const GetTotalSaving = cartItems.reduce(function (a, b) {
+        return a + Number(b["price"] * b["itemQuant"]);
+    }, 0);
+
 
     useEffect(() => {
-        Setcategories(data.categories);
-    }, [data.categories]);
+        data.cartItems.length === 0 && navigation("/")
+    }, [data]);
 
 
     return (
@@ -27,77 +30,20 @@ const SliderCart = (props) => {
 
             <div class="bs-canvas bs-canvas-left position-fixed bg-cart h-100">
                 <div class="bs-canvas-header side-cart-header p-3 ">
-                    <div class="d-inline-block  main-cart-title">My Cart <span>(2 Items)</span></div>
+                    <div class="d-inline-block  main-cart-title">My Cart <span>({data.cartItems.length} items)</span></div>
                     <button type="button" class="bs-canvas-close close" aria-label="Close"><i class="uil uil-multiply"></i></button>
                 </div>
                 <div class="bs-canvas-body">
-                    <div class="cart-top-total">
-                        <div class="cart-total-dil">
-                            <h4>Gambo Super Market</h4>
-                            <span>$34</span>
-                        </div>
-                        <div class="cart-total-dil pt-2">
-                            <h4>Delivery Charges</h4>
-                            <span>$1</span>
-                        </div>
-                    </div>
-                    <div class="side-cart-items">
-                        <div class="cart-item">
-                            <div class="cart-product-img">
-                                <img src="images/product/img-1.jpg" alt="" />
-                                <div class="offer-badge">6% OFF</div>
-                            </div>
-                            <div class="cart-text">
-                                <h4>Product Title Here</h4>
-                                <div class="cart-radio">
-                                    <ul class="kggrm-now">
-                                        <li>
-                                            <input type="radio" id="a1" name="cart1" />
-                                            <label for="a1">0.50</label>
-                                        </li>
 
-                                    </ul>
-                                </div>
-                                <div class="qty-group">
-                                    <div class="quantity buttons_added">
-                                        <input type="button" value="-" class="minus minus-btn" />
-                                        <input type="number" step="1" name="quantity" value="1" class="input-text qty text" />
-                                        <input type="button" value="+" class="plus plus-btn" />
-                                    </div>
-                                    <div class="cart-item-price">$10 <span>$15</span></div>
-                                </div>
+                    {cartItems.map((data, i) => {
+                        return (
+                            <CartSliderItems data={data} />
+                        )
+                    })}
 
-                                <button type="button" class="cart-close-btn"><i class="uil uil-multiply"></i></button>
-                            </div>
-                        </div>
-                        <div class="cart-item">
-                            <div class="cart-product-img">
-                                <img src="images/product/img-2.jpg" alt="" />
-                                <div class="offer-badge">6% OFF</div>
-                            </div>
-                            <div class="cart-text">
-                                <h4>Product Title Here</h4>
-                                <div class="cart-radio">
-                                    <ul class="kggrm-now">
-                                        <li>
-                                            <input type="radio" id="a5" name="cart2" />
-                                            <label for="a5">0.50</label>
-                                        </li>
 
-                                    </ul>
-                                </div>
-                                <div class="qty-group">
-                                    <div class="quantity buttons_added">
-                                        <input type="button" value="-" class="minus minus-btn" />
-                                        <input type="number" step="1" name="quantity" value="1" class="input-text qty text" />
-                                        <input type="button" value="+" class="plus plus-btn" />
-                                    </div>
-                                    <div class="cart-item-price">$24 <span>$30</span></div>
-                                </div>
-                                <button type="button" class="cart-close-btn"><i class="uil uil-multiply"></i></button>
-                            </div>
-                        </div>
-                    </div>
+
+
                 </div>
                 <div class="bs-canvas-footer">
                     <div class="cart-total-dil saving-total ">
@@ -106,7 +52,7 @@ const SliderCart = (props) => {
                     </div>
                     <div class="main-total-cart">
                         <h2>Total</h2>
-                        <span>$35</span>
+                        <span> ₹{Math.round(GetTotal)}</span>
                     </div>
                     <div class="checkout-cart">
                         <a href="#" class="promo-code">Have a promocode?</a>

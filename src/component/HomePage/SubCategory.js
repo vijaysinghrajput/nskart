@@ -21,12 +21,32 @@ const SubCategory = (props) => {
     const [subcategories, Setsubcategories] = useState([]);
 
     useEffect(() => {
+
+        // window.scrollTo({ top: 0, behavior: 'smooth' });
+
         Setsubcategories(data.subcategories);
     }, [data.subcategories]);
 
 
     return (
         <>
+
+            <div class="gambo-Breadcrumb my-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page"> {subcatName} </li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="osahan-subcategories my-4">
                 {console.log(location.pathname)}
                 {location.pathname !== "/subcategories" &&
@@ -50,7 +70,7 @@ const SubCategory = (props) => {
 
                                     <>
                                         {item.parent_id == subcatID ? (
-                                            <div class="col-4 col-lg-2 col-md-3 mb-3">
+                                            <div class="col-6 col-lg-3 col-md-4 mb-3">
                                                 <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                                     <div class="p-4">
 
