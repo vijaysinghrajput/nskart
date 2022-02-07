@@ -38,18 +38,25 @@ export const SliderProducts = ({ data }) => {
             <div class="product-item mb-30">
 
 
-                <a href="#" class="product-img">
-                    <img style={{ width: '100%' }} border="0" src={URL + "/images/product-images/" + data.product_image} alt="" />
+                <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}
+                    class="product-img">
+                    <img style={{ maxWidth: 100, maxHeight: 100 }} border="0" src={URL + "/images/product-images/" + data.product_image} alt="" />
                     <div class="product-absolute-options">
 
                         {data.discount !== "0" && <span class="offer-badge-1">{Math.round(data.discount)} %</span>}
 
                     </div>
-                </a>
-                <div class="product-text-dt">
+                </Link>
 
-                    <h4>{data.product_name.substring(0, 20)} {data.product_size + data.product_unit}</h4>
-                    <div class="product-price">₹{Math.round((data.price) - ((data.price) * (data.discount / 100)))} <span>₹{Math.round(data.price)}</span></div>
+                <div class="product-text-dt">
+                    <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}
+                    >
+
+                        <h6 style={{ color: 'black' }}>{data.product_name.substring(0, 25)} {data.product_size + data.product_unit}</h6>
+                        <div class="product-price">₹{Math.round((data.price) - ((data.price) * (data.discount / 100)))} <span>₹{Math.round(data.price)}</span></div>
+
+                    </Link>
+
                     <div className="qty-cart">
                         {!productData.itemQuant ? (
                             <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 8, marginLeft: "auto" }}>

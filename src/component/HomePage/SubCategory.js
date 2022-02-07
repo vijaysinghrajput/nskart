@@ -22,7 +22,7 @@ const SubCategory = (props) => {
 
     useEffect(() => {
 
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // window.scrollTo({ top: 0, behavior: 'smooth' });
 
         Setsubcategories(data.subcategories);
     }, [data.subcategories]);
@@ -70,7 +70,7 @@ const SubCategory = (props) => {
 
                                     <>
                                         {item.parent_id == subcatID ? (
-                                            <div class="col-4 col-lg-2 col-md-3 mb-3">
+                                            <div class="col-6 col-lg-3 col-md-4 mb-3">
                                                 <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                                     <div class="p-4">
 

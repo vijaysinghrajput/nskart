@@ -43,7 +43,7 @@ export const BasicVegitableFruit = ({ data }) => {
 
                     <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}
                         class="product-img">
-                        <img style={{ width: '100%' }} border="0" src={URL + "/images/product-images/" + data.product_image} alt="" />
+                        <img style={{ maxWidth: 100, maxHeight: 100 }} border="0" src={URL + "/images/product-images/" + data.product_image} alt="" />
                         <div class="product-absolute-options">
 
                             {data.discount !== "0" && <span class="offer-badge-1">{Math.round(data.discount)} %</span>}
@@ -54,7 +54,7 @@ export const BasicVegitableFruit = ({ data }) => {
                         <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}
                         >
 
-                            <h4>{data.product_name.substring(0, 20)} {data.product_size + data.product_unit}</h4>
+                            <h6 style={{ color: 'black' }}>{data.product_name.substring(0, 25)} {data.product_size + data.product_unit}</h6>
                             <div class="product-price">₹{Math.round((data.price) - ((data.price) * (data.discount / 100)))} <span>₹{Math.round(data.price)}</span></div>
 
                         </Link>
