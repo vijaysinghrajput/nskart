@@ -9,7 +9,7 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { Link, useLocation } from 'react-router-dom';
 import { CategoryLoading } from '../Loaders/SkeletonLoader';
-
+import $ from 'jquery';
 
 const SubCategory = (props) => {
 
@@ -21,9 +21,6 @@ const SubCategory = (props) => {
     const [subcategories, Setsubcategories] = useState([]);
 
     useEffect(() => {
-
-        // window.scrollTo({ top: 0, behavior: 'smooth' });
-
         Setsubcategories(data.subcategories);
     }, [data.subcategories]);
 

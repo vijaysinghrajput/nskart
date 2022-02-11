@@ -143,12 +143,11 @@ const Checkout = ({ setNavigate, checkOutData }) => {
 
     return (
         <>
-            {console.log("asjkdkashd", checkOutData)}
             <div class="bg-white rounded shadow-sm overflow-hidden">
                 <div class="p-3">
                     <div class="d-flex align-items-center">
                         <span class="small">
-                            <a href="#" onClick={() => setNavigate(false)} class="font-weight-bold text-decoration-none text-success" data-toggle="modal" data-target="#exampleModal">
+                            <a href="#" onClick={() => setNavigate(false)} class="font-weight-bold text-decoration-none color-theme-primary" data-toggle="modal" data-target="#exampleModal">
                                 <RiArrowGoBackFill /> Back
                             </a>
                         </span>
@@ -190,7 +189,7 @@ const Checkout = ({ setNavigate, checkOutData }) => {
                 <div>
                     <div class="accordion" id="accordionExample">
                         <div class="d-flex align-items-center" id="headingThree">
-                            <a class="p-3 d-flex align-items-center text-decoration-none text-success w-100"
+                            <a class="p-3 d-flex align-items-center text-decoration-none color-theme-primary w-100"
                                 type="button" data-toggle="collapse" data-target="#collapseThree"
                                 aria-expanded="false" aria-controls="collapseThree">
                                 <i class="icofont-badge mr-3"></i> Add Promo Code
@@ -203,7 +202,7 @@ const Checkout = ({ setNavigate, checkOutData }) => {
                                 <div class="input-group-sm mb-2 input-group">
                                     <input onChange={d => setCoupon(d.target.value)} placeholder="Enter promo code" type="text" class="form-control" />
                                     <div class="input-group-append"><button id="button-addon2" type="button" onClick={isCouponValid}
-                                        class="btn btn-success"><i class="icofont-percent"></i>
+                                        class="btn bg-theme-primary"><i class="icofont-percent"></i>
                                         APPLY</button></div>
                                 </div>
                             </div>

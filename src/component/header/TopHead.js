@@ -6,7 +6,7 @@ import { useMediaQuery } from '@chakra-ui/react';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-
+import { Menu, Dropdown } from 'antd';
 import { CategoryLoading } from '../Loaders/SkeletonLoader';
 
 
@@ -69,7 +69,7 @@ const TopHead = ({ setSearchTerm, onFocus, onBlur, focused, searchedProduct, wra
 
                             <li class="ui dropdown" tabIndex="0">
                                 <a href="#" class="opts_account">
-                                    <img src="images/avatar/img-5.jpg" alt="" />
+                                    <img src="/images/avatar/img-5.jpg" alt="" />
                                     <span class="user__name">{data.auth.isUserLogin ? data.user?.user_info?.name?.replace(/ .*/, '') : "Guest"}</span>
                                     <i class="uil uil-angle-down"></i>
                                 </a>

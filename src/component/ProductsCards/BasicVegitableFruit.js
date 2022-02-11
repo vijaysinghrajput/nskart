@@ -60,7 +60,7 @@ export const BasicVegitableFruit = ({ data }) => {
                         </Link>
                         <div className="qty-cart">
                             {!productData.itemQuant ? (
-                                <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 8, marginLeft: "auto" }}>
+                                <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 4, marginLeft: "auto" }}>
                                     <BsFillCartPlusFill size="20" style={{ color: "#006200", cursor: "pointer", fontSize: 20 }} onClick={() =>
                                         mainData.addToCart({
                                             ...data,

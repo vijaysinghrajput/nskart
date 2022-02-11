@@ -131,13 +131,13 @@ class Address extends Component {
                     <div className="card-header bg-white border-0 p-0" id="headingtwo">
                         <h2 className="mb-0">
                             <button onClick={() => this.refreshSate()} className="btn d-flex align-items-center bg-white btn-block text-left btn-lg h5 px-3 py-4 m-0" type="button" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
-                                <span className="c-number">2</span> Order Address <a href="#" data-toggle="modal" data-target="#addAddressModal" className="text-decoration-none text-success ml-auto"> <i className="icofont-plus-circle mr-1" />Add New  Address</a>
+                                <span className="c-number">2</span> Order Address <a href="#" data-toggle="modal" data-target="#addAddressModal" className="text-decoration-none color-theme-primary ml-auto"> <i className="icofont-plus-circle mr-1" />Add New  Address</a>
                             </button>
                         </h2>
                     </div>
                     <div id="collapsetwo" className="collapse" aria-labelledby="headingtwo" data-parent="#accordionExample">
                         <div className="card-body p-0 border-top">
-                            <div className="osahan-order_address">
+                            <div className="osahan-order_addres px-4">
                                 <div className="p-3 row">
                                     <>
                                         {this.state.UserAddressData.length ? (
@@ -160,7 +160,7 @@ class Address extends Component {
                                                                         </p>
                                                                     </div>
 
-                                                                    <span onClick={() => { this.setState({ selectedDeliveryAddress: item.address_id }); this.props.setAddress(item) }} className={this.state.selectedDeliveryAddress == item.address_id ? 'btn btn-success border-top btn-lg btn-block' : 'btn btn-default border-top btn-lg btn-block'} >
+                                                                    <span data-toggle="collapse" data-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree" onClick={() => { this.setState({ selectedDeliveryAddress: item.address_id }); this.props.setAddress(item) }} className={this.state.selectedDeliveryAddress == item.address_id ? 'btn bg-theme-primary border-top btn-lg btn-block' : 'btn btn-default border-top btn-lg btn-block'} >
                                                                         Deliver Here
                                                                     </span>
 
@@ -172,14 +172,14 @@ class Address extends Component {
                                             </>
                                         ) : (
                                             <div className="card-header bg-white border-0 p-0" id="headingtwo">
-                                                <a href="#" data-toggle="modal" data-target="#addAddressModal" className="text-decoration-none text-success ml-auto"> <i className="icofont-plus-circle mr-1" />Add New Delivery Address</a>
+                                                <a href="#" data-toggle="modal" data-target="#addAddressModal" className="text-decoration-none color-theme-primary ml-auto"> <i className="icofont-plus-circle mr-1" />Add New Delivery Address</a>
                                             </div>
                                         )}
                                     </>
                                     {this.state.selectedDeliveryAddress == null ? (
                                         <a href="#" className="btn btn-danger btn-lg btn-block mt-3" type="button" >Please Add Delivery Address</a>
                                     ) : (
-                                        <a href="#" className="btn btn-success btn-lg btn-block mt-3" type="button" data-toggle="collapse" data-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree">Continue</a>
+                                        <a href="#" className="btn bg-theme-primary btn-lg btn-block mt-3" type="button" data-toggle="collapse" data-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree">Continue</a>
                                     )}
                                 </div>
                             </div>
@@ -298,7 +298,7 @@ class Address extends Component {
                                     <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
                                 </div>
                                 <div class="col-6 m-0 p-0">
-                                    <button onClick={() => this.SaveAddress('insert', null)} type="button" class="btn btn-success btn-lg btn-block">Save changes</button>
+                                    <button onClick={() => this.SaveAddress('insert', null)} type="button" class="btn bg-theme-primary btn-lg btn-block">Save changes</button>
                                 </div>
                             </div>
                         </div>
@@ -467,7 +467,7 @@ class Address extends Component {
                                                     <button type="button" class="btn border-top btn-lg btn-block" data-dismiss="modal">Close</button>
                                                 </div>
                                                 <div class="col-6 m-0 p-0">
-                                                    <button onClick={() => this.SaveAddress('update', item.address_id)} type="button" class="btn btn-success btn-lg btn-block">Update changes</button>
+                                                    <button onClick={() => this.SaveAddress('update', item.address_id)} type="button" class="btn bg-theme-primary btn-lg btn-block">Update changes</button>
                                                 </div>
                                             </div>
                                         </div>

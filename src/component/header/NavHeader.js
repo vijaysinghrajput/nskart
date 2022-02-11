@@ -10,7 +10,7 @@ import { CategoryLoading } from '../Loaders/SkeletonLoader';
 import { useNavigate } from 'react-router';
 
 
-const NavHeader = (props) => {
+const NavHeader = ({ onOpen, onClose }) => {
 
     const data = useContext(contextData);
     const [isNotSmallerScreen] = useMediaQuery("(min-width:1024px)");
@@ -26,11 +26,6 @@ const NavHeader = (props) => {
 
     return (
         <>
-
-
-
-
-
             <div class="sub-header-group">
                 <div class="sub-header">
                     <div class="ui dropdown">
@@ -38,7 +33,7 @@ const NavHeader = (props) => {
                     </div>
                     <nav class="navbar navbar-expand-lg navbar-light py-3">
                         <div class="container-fluid">
-                            <button class="navbar-toggler menu_toggle_btn" type="button" data-target="#navbarSupportedContent"><i class="uil uil-bars"></i></button>
+                            <button class="navbar-toggler menu_toggle_btn" onClick={onOpen} type="button" data-target="#navbarSupportedContent"><i class="uil uil-bars"></i></button>
                             <div class="collapse navbar-collapse d-flex flex-column flex-lg-row flex-xl-row justify-content-lg-end bg-dark1 p-3 p-lg-0 mt1-5 mt-lg-0 mobileMenu" id="navbarSupportedContent">
                                 <ul class="navbar-nav main_nav align-self-stretch">
                                     <li class="nav-item"><a href="#" onClick={() => navigate("/")} class="nav-link active" title="Home">Home</a></li>
@@ -54,7 +49,7 @@ const NavHeader = (props) => {
                         <a href="#" class="cate__btn" data-toggle="modal" data-target="#category_model" title="Categories"><i class="uil uil-apps"></i></a>
                     </div>
                     <div class="header_cart order-1">
-                        <a href="#" class="cart__btn hover-btn pull-bs-canvas-left" title="Cart"><i class="uil uil-shopping-cart-alt"></i><span>Cart</span><ins>2</ins><i class="uil uil-angle-down"></i></a>
+                        <a href="#" class="cart__btn hover-btn pull-bs-canvas-left" title="Cart"><i class="uil uil-shopping-cart-alt"></i><span>Cart</span><ins>{data.cartItems.length}</ins><i class="uil uil-angle-down"></i></a>
                     </div>
                     <div class="search__icon order-1">
                         <a href="#" class="search__btn hover-btn" data-toggle="modal" data-target="#search_model" title="Search"><i class="uil uil-search"></i></a>

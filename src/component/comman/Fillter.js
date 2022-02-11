@@ -68,7 +68,7 @@ export const Filter = ({ setShortingMain }) => {
                                     data-dismiss="modal">Close</button>
                             </div>
                             <div class="col-6 m-0 p-0">
-                                <button type="button" class="btn btn-success btn-lg btn-block" data-dismiss="modal">Apply</button>
+                                <button type="button" class="btn bg-theme-primary btn-lg btn-block" data-dismiss="modal">Apply</button>
                             </div>
                         </div>
                     </div>

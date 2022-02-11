@@ -11,8 +11,6 @@ const HomePage = () => {
 
   const data = useContext(contextData);
 
-  console.log("daat", data)
-
   return (
     <>
       <Helmet>

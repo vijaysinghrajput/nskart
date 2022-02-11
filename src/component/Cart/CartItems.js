@@ -38,10 +38,10 @@ const CartItems = (props) => {
                             <div>
                                 {auth.isUserLogin ?
                                     <a href="#" className="text-decoration-none btn btn-block p-3" type="button" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
-                                        <div className="rounded shadow bg-success d-flex align-items-center p-3 text-white">
+                                        <div className="rounded shadow bg-theme-primary d-flex align-items-center p-3 text-white">
                                             <div className="more">
                                                 <h6 className="m-0">Subtotal ₹{Math.round(GetTotal)}</h6>
-                                                <p className="small m-0">Proceed to checkout</p>
+                                                <p className="small m-0 ml-3" style={{ color: "#fff" }}>Proceed to checkout</p>
                                             </div>
                                             <div className="ml-auto"><i className="icofont-simple-right" /></div>
                                         </div>

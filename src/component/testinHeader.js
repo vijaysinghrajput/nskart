@@ -179,7 +179,7 @@ class Header extends Component {
                             <div class="input-group mr-sm-2 col-lg-12">
                                 <input type="text" onChange={this.SearchProducts} class="form-control" id="inlineFormInputGroupUsername2" placeholder="Search for Products.." />
                                 <div class="input-group-prepend">
-                                    <div class="btn btn-success rounded-right"><i class="icofont-search"></i></div>
+                                    <div class="btn bg-theme-primary rounded-right"><i class="icofont-search"></i></div>
                                 </div>
                                 {this.state.searchedProduct.length && this.state.searchTerm ? (
                                     <div class="search-items-layout" aria-labelledby="dropdownMenuButton">

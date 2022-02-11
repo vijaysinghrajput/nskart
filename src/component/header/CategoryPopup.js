@@ -5,8 +5,9 @@ import { useMediaQuery } from '@chakra-ui/react';
 // import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { CategoryLoading } from '../Loaders/SkeletonLoader';
+import $ from 'jquery';
 
 
 const CategoryPopup = (props) => {
@@ -14,18 +15,25 @@ const CategoryPopup = (props) => {
     const data = useContext(contextData);
     const [isNotSmallerScreen] = useMediaQuery("(min-width:1024px)");
     const location = useLocation();
+    const navigate = useNavigate();
     const [categories, Setcategories] = useState([]);
 
     useEffect(() => {
         Setcategories(data.categories);
     }, [data.categories]);
 
+    const diploy = (id, name) => {
+        const direct = "/categories/" + id + "/" + name;
+        document.getElementsByClassName("close")[0].click();
+        navigate(direct);
+    }
+
 
     return (
         <>
 
 
-            <div id="category_model" class="header-cate-model main-gambo-model modal fade" tabindex="-1" role="dialog" aria-modal="false">
+            <div id="category_model" class="header-cate-model main-gambo-model modal fade" data-dismiss="modal" tabindex="-1" role="dialog" aria-modal="false">
                 <div class="modal-dialog category-area" role="document">
                     <div class="category-area-inner">
                         <div class="modal-header">
@@ -49,21 +57,22 @@ const CategoryPopup = (props) => {
                                     < >
                                         {categories.map((item, i) => {
                                             return (
-                                                <li>
-                                                    <Link
-                                                        state={location.pathname}
+                                                <li >
+                                                    <div
                                                         class="single-cat-item"
-                                                        to={"/categories/" + item.id + "/" + item.name}>
+                                                        style={{ cursor: "pointer", }}
+                                                        onClick={() => diploy(item.id, item.name)}
+                                                    // to={"/categories/" + item.id + "/" + item.name}
+                                                    >
                                                         <div class="icon">
                                                             <img src={URL + "/images/category_images/" + item.image}
                                                                 alt={item.name + " in Gorakhpur | NsKart is an online vegetable, fruit, cake ,chicken, and grocery delivery website and app in Gorakhpur , Which deliver you home at very low prices. Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
                                                                 title={item.name + " delivery in Gorakhpur | Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
                                                             />
                                                         </div>
-                                                        <div class="text">{item.name} </div>
-                                                    </Link>
+                                                        <div class="text" style={{ color: "#000", whiteSpace: "nowrap", textOverflow: 'ellipsis', overflow: 'hidden', textAlign: "center" }}>{item.name} </div>
+                                                    </div>
                                                 </li>
-
                                             )
                                         })}
                                     </>

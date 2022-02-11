@@ -112,7 +112,7 @@ const Cart = (props) => {
                             <div className="col-lg-4">
                                 <div className="sticky_sidebar">
                                     <PaymentDetails />
-                                    {navigate && <Button isLoading={orderSuccessFull} onClick={() => placeOrder()} class="btn btn-success btn-lg btn-block mt-3 mb-3">Place Order</Button>}
+                                    {navigate && <Button isLoading={orderSuccessFull} onClick={() => placeOrder()} class="btn bg-theme-primary btn-lg btn-block mt-3 mb-3">Place Order</Button>}
                                 </div>
                             </div>
                             :
@@ -120,7 +120,7 @@ const Cart = (props) => {
                                 <div className="sticky_sidebar">
                                     <PaymentDetails />
                                     {navigate && <div style={{ position: "fixed", bottom: 0, left: 0, width: "100%", background: "#fff", padding: 10 }}>
-                                        <Button isLoading={orderSuccessFull} onClick={() => placeOrder()} class="btn btn-success btn-lg btn-block">Place Order</Button>
+                                        <Button isLoading={orderSuccessFull} onClick={() => placeOrder()} class="btn bg-theme-primary btn-lg btn-block">Place Order</Button>
                                     </div>}
                                 </div>
                             </div>

@@ -36,15 +36,14 @@ const MainDrawer = ({ isOpen, onClose }) => {
                 size={"xs"}
             >
                 <DrawerOverlay />
-                {console.log("user info --->", user)}
                 <DrawerContent style={{ width: "68%" }}>
-                    <DrawerHeader background={"#efefef"}>
+                    {/*  <DrawerHeader background={"#efefef"}>
                         <div class="bs-canvas-header side-cart-header">
                             <p className="mb-1">Hello,</p>
                             <h6 style={{ color: "#000", fontWeight: "700" }}> {user?.user_info?.name === "" || user?.user_info?.name === null ? "Unknown" : user?.user_info?.name}</h6>
                             {auth.isUserLogin && <p style={{ textTransform: "uppercase", fontSize: 10 }}><BsPhoneFill />  {user?.user_info?.mobile}</p>}
                         </div>
-                    </DrawerHeader>
+                    </DrawerHeader> */}
                     <DrawerBody>
                         <div className="cart_options">
                             {auth.isUserLogin ?

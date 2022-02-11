@@ -72,7 +72,7 @@ export const PaymentDetails = (props) => {
         <>
             <div className="bg-white rounded overflow-hidden shadow-sm mb-3 checkout-sidebar">
                 <div className="d-flex align-items-center osahan-cart-item-profile border-bottom bg-white p-3">
-                    <img alt="osahan" src="./img/starter1.jpg" className="mr-3 rounded-circle img-fluid" />
+                    <img alt="osahan" src="/img/starter1.jpg" className="mr-3 rounded-circle img-fluid" />
                     <div className="d-flex flex-column">
                         <h6 className="mb-1 font-weight-bold">SuperG Fresh Store</h6>
                         <p className="mb-0 small text-muted"><i className="feather-map-pin" /> Bhardwadjpuram, Rustampur, 273004</p>

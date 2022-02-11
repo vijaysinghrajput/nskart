@@ -94,7 +94,7 @@ class App extends Component {
             <Route path="/shipping-policy" element={<ConditionPage />} />
             <Route path="/return-and-refund-policy" element={<ConditionPage />} />
             <Route path="/faq" element={<ConditionPage />} />
-            <Route path='*' exact={true} element={<NotFoundPage />} />
+            {/* <Route path='*' exact={true} element={<NotFoundPage />} /> */}
 
             {/* USER ACCOUNT END */}
           </Routes>
