@@ -304,7 +304,7 @@ class CheackOut extends Component {
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-auto">
-                                    <span class="btn btn-success p-3 rounded-circle">
+                                    <span class="btn bg-theme-primary p-3 rounded-circle">
                                         <i class="material-icons">local_activity</i>
                                     </span>
                                 </div>

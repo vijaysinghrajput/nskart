@@ -82,7 +82,7 @@ export const DeliveryTiming = ({ setDeliveryTiming }) => {
                             </div>
                         </div>
                         <div className="p-3">
-                            <a href="#" className="btn btn-success btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true" aria-controls="collapsefour">Schedule Order</a>
+                            <a href="#" className="btn bg-theme-primary btn-lg btn-block" type="button" data-toggle="collapse" data-target="#collapsefour" aria-expanded="true" aria-controls="collapsefour">Schedule Order</a>
                         </div>
                     </div>
                 </div>

@@ -147,7 +147,7 @@ textarea {
 p {
 	font-size: 14px;
 	line-height: 26px;
-	color: #91699c;
+	color: #191919;
 }
 
 a {
@@ -2118,6 +2118,7 @@ span.like-icon {
 
 .qty-cart {
 	display: flex;
+    justify-content: end;
 	align-items: center;
 	margin-top: 17px;
 }
@@ -6622,8 +6623,4 @@ iframe {
     border-radius: 8px;
     background-color: #efefef;
     padding: 5px;
-}
-
-.osahan-main-body {
-    padding-top: 11rem;
 }

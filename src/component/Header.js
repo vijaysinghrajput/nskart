@@ -17,6 +17,7 @@ import SeachPopup from './header/SeachPopup'
 import SliderCart from './header/SliderCart'
 import TopHead from './header/TopHead'
 import NavHeader from './header/NavHeader'
+import MainDrawer from './comman/Drawer';
 
 
 
@@ -89,14 +90,15 @@ const Header = () => {
     <>
 
       <CategoryPopup />
-      <SeachPopup />
+      <MainDrawer isOpen={isOpen} onClose={onClose} />
+      <SeachPopup setSearchTerm={setSearchTerm} searchedProduct={searchedProduct} />
       <SliderCart />
 
       <header class="header clearfix">
 
         <TopHead setSearchTerm={setSearchTerm} onFocus={onFocus} onBlur={onBlur} focused={focused} searchedProduct={searchedProduct} wrapperRef={wrapperRef} />
 
-        <NavHeader />
+        <NavHeader onOpen={onOpen} onClose={onClose} />
 
 
 

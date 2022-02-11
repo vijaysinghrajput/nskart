@@ -77,7 +77,7 @@ export const CartItemsCard = ({ data }) => {
                                                     })}
                                                 />
                                             )}
-                                            <h5 className="mb-0">{productData.itemQuant}</h5>
+                                            <h5 className="m-2">{productData.itemQuant}</h5>
                                             <AiOutlinePlus
                                                 style={{ fontSize: 18, cursor: "pointer", color: "#454545" }}
                                                 onClick={() =>

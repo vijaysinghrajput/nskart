@@ -56,10 +56,10 @@ export const CartSliderItems = ({ data }) => {
                         </div>
                         <div class="qty-group">
 
-                            <div className="ml-auto" style={isNotSmallerScreen ? { width: "20%" } : { width: "50%" }}>
+                            <div className="ml-auto" style={isNotSmallerScreen ? { width: "40%" } : { width: "50%" }}>
                                 <div>
                                     {!productData.itemQuant ? (
-                                        <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 8, marginLeft: "auto" }}>
+                                        <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 4, marginLeft: "auto" }}>
                                             <AiOutlinePlus style={{ color: "#454545", cursor: "pointer", fontSize: 18 }} onClick={() =>
                                                 mainData.addToCart({
                                                     ...data,
@@ -87,7 +87,7 @@ export const CartSliderItems = ({ data }) => {
                                                     })}
                                                 />
                                             )}
-                                            <h5 className="mb-0">{productData.itemQuant}</h5>
+                                            <h5 className="m-2">{productData.itemQuant}</h5>
                                             <AiOutlinePlus
                                                 style={{ fontSize: 18, cursor: "pointer", color: "#454545" }}
                                                 onClick={() =>

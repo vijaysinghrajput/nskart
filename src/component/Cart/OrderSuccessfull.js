@@ -23,7 +23,7 @@ export const OrderSuccessFull = (props) => {
                     <div class="p-5 text-center">
                         <i class="icofont-check-circled display-1 text-warning"></i>
                         {/* <img src={imgSuccess} height={100} alt="" /> */}
-                        <h1 class="text-white font-weight-bold">Osahan, Your order has been successful 🎉</h1>
+                        <h1 class="text-white font-weight-bold" style={{ fontSize: 18 }}>Your order has been successful 🎉</h1>
                         <p class="text-white">Check your order status in <Link to="/orders" class="font-weight-bold text-decoration-none text-white">My Order</Link> about next steps information.</p>
                     </div>
 

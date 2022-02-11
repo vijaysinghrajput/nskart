@@ -59,7 +59,7 @@ export const SliderProducts = ({ data }) => {
 
                     <div className="my-2">
                         {!productData.itemQuant ? (
-                            <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 8, marginLeft: "auto" }}>
+                            <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 4, marginLeft: "auto" }}>
                                 <BsFillCartPlusFill size="24" style={{ color: "#1f1f1f", cursor: "pointer", fontSize: 20 }} onClick={() =>
                                     mainData.addToCart({
                                         ...data,
@@ -69,7 +69,7 @@ export const SliderProducts = ({ data }) => {
                                 } />
                             </div>
                         ) : (
-                            <div class="plusMinusFun plusMinusFunButton d-flex justify-content-between px-3 align-items-center">
+                            <div class="plusMinusFun plusMinusFunButton d-flex justify-content-between px-3 align-items-center" style={{ padding: 4 }}>
                                 {productData.itemQuant === 1 ? (
                                     <BsFillCartXFill
                                         size="24"
