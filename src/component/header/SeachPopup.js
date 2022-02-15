@@ -5,7 +5,7 @@ import { useMediaQuery } from '@chakra-ui/react';
 // import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { CategoryLoading } from '../Loaders/SkeletonLoader';
 
 
@@ -14,12 +14,18 @@ const SeachPopup = ({ setSearchTerm, searchedProduct }) => {
     const data = useContext(contextData);
     const [isNotSmallerScreen] = useMediaQuery("(min-width:1024px)");
     const location = useLocation();
+    const navigate = useNavigate();
     const [categories, Setcategories] = useState([]);
 
     useEffect(() => {
         Setcategories(data.categories);
     }, [data.categories]);
 
+    const diploy = (name, id) => {
+        const direct = "/" + (name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + id;
+        document.getElementsByClassName("btn-close-mobile")[0].click();
+        navigate(direct);
+    }
 
     return (
         <>
@@ -27,7 +33,7 @@ const SeachPopup = ({ setSearchTerm, searchedProduct }) => {
                 <div class="modal-dialog search-ground-area" role="document">
                     <div class="category-area-inner">
                         <div class="modal-header">
-                            <button type="button" class="close btn-close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close btn-close btn-close-mobile" data-dismiss="modal" aria-label="Close">
                                 <i class="uil uil-multiply"></i>
                             </button>
                         </div>
@@ -42,8 +48,8 @@ const SeachPopup = ({ setSearchTerm, searchedProduct }) => {
                                 <a href="#" class="single-cat px-0">
                                     {searchedProduct.slice(0, 10).map((item, i) => {
                                         return (
-                                            <div class="text p-1">
-                                                <Link class="dropdown-item" to={"/" + (item.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + item.id}>{item.product_name}</Link>
+                                            <div class="text p-1" onClick={() => diploy(item.product_name, item.id)}>
+                                                <div class="dropdown-item">{item.product_name}</div>
                                             </div>
                                         )
                                     })}

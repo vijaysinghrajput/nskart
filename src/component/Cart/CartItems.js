@@ -40,7 +40,7 @@ const CartItems = (props) => {
                                     <a href="#" className="text-decoration-none btn btn-block p-3" type="button" data-toggle="collapse" data-target="#collapsetwo" aria-expanded="true" aria-controls="collapsetwo">
                                         <div className="rounded shadow bg-theme-primary d-flex align-items-center p-3 text-white">
                                             <div className="more">
-                                                <h6 className="m-0">Subtotal ₹{Math.round(GetTotal)}</h6>
+                                                <h6 className="m-0" style={{ fontWeight: "700", color: "#fff" }}>Subtotal ₹{Math.round(GetTotal)}</h6>
                                                 <p className="small m-0 ml-3" style={{ color: "#fff" }}>Proceed to checkout</p>
                                             </div>
                                             <div className="ml-auto"><i className="icofont-simple-right" /></div>
@@ -48,7 +48,7 @@ const CartItems = (props) => {
                                     </a> : <Link to="/login" state={location.pathname} className="text-decoration-none btn btn-block p-3">
                                         <div className="rounded shadow bg-danger d-flex align-items-center p-4 text-white">
                                             <div className="more">
-                                                <h6 className="m-0">Please Login First</h6>
+                                                <h6 className="m-0" style={{ fontWeight: "700", color: "#fff" }}>Please Login First</h6>
                                             </div>
                                             <div className="ml-auto"><i className="icofont-simple-right" /></div>
                                         </div>

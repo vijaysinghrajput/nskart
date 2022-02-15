@@ -29,7 +29,6 @@ const Header = () => {
   console.log('all data', data)
   localStorage.setItem("cartItems", JSON.stringify(data.cartItems));
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isNotSmallerScreen] = useMediaQuery("(min-width:1024px)");
   const { products, logOut, totalItems, subcategories, cartItems, auth } = data;
   const { pathname } = useLocation();
   const [searchedProduct, setSearchedProduct] = useState(products);

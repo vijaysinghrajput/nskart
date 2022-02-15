@@ -88,8 +88,12 @@ body {
 	font-size: 13px;
 }
 
-.schedule .nav-link.active, .schedule .nav-link:focus {
+.schedule .nav-link.active>p, .schedule .nav-link:focus {
 	color: #f55d2c !important;
+}
+
+.schedule .nav-link.active {
+	border: none !important;
 }
 
 .schedule .nav-tabs {
@@ -430,7 +434,7 @@ span.c-number {
 
 .sticky_sidebar, .c-t-order, .osahan-account {
 	position: sticky;
-	top: 8rem;
+	top: 10rem;
 }
 
 .osahan-cart-item-profile img {
@@ -1164,6 +1168,14 @@ label {
 		padding-bottom: 8rem;
 	}
 
+	.product-img img {
+		height: 100px !important;
+	}
+
+	.product-img {
+		padding: 0 !important;
+	}
+
 	.containerLogin {
 		padding: 0 !important;
 	}
@@ -1179,10 +1191,6 @@ label {
 
 	.osahan-main-nav {
 		display: none;
-	}
-
-	.osahan-main-body {
-		padding-top: 5rem !important;
 	}
 
 	.plus-minus-container {
@@ -1333,4 +1341,12 @@ label {
 .orderTotal > h6 {
 	font-size: 14px;
 	margin-bottom: 0;
+}
+
+.product-img img {
+	width: auto;
+	height: 170px;
+	object-fit: contain;
+	display: block;
+	margin: auto;
 }

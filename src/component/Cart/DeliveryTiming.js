@@ -65,13 +65,13 @@ export const DeliveryTiming = ({ setDeliveryTiming }) => {
                                 </ul>
                                 <div className="tab-content filter bg-white" id="myTabContent">
                                     <div className="tab-pane fade show active" id="mon" role="tabpanel" aria-labelledby="mon-tab">
-                                        <div onClick={() => setTimingSlot("7AM - 11AM")} className={selectedDate.getHours() > 6 ? "custom-control border-bottom px-0 custom-radio inactive" : "custom-control border-bottom px-0 custom-radio"}>
+                                        <div style={timingSlot === "7AM - 11AM" ? { color: "purple" } : {}} onClick={() => setTimingSlot("7AM - 11AM")} className={selectedDate.getHours() > 6 ? "custom-control border-bottom px-0 custom-radio inactive" : "custom-control border-bottom px-0 custom-radio" && timingSlot === "7AM - 11AM" && "active"}>
                                             <input className="custom-control-input" type="radio" name="exampleRadios" id="mon1" defaultValue="mon1" defaultChecked={selectedDate.getHours() > 6 ? false : true} />
                                             <label className="custom-control-label py-3 w-100 px-3" htmlFor="mon1">
                                                 <i className="icofont-clock-time mr-2" /> 7AM - 11AM <span style={{ fontSize: 10, marginLeft: 5 }}>(Sunrise Delivery)</span>
                                             </label>
                                         </div>
-                                        <div onClick={() => setTimingSlot("5PM - 9PM")} className={selectedDate.getHours() > 16 ? "custom-control border-bottom px-0 custom-radio inactive" : "custom-control border-bottom px-0 custom-radio"}>
+                                        <div style={timingSlot !== "7AM - 11AM" ? { color: "purple" } : {}} onClick={() => setTimingSlot("5PM - 9PM")} className={selectedDate.getHours() > 16 ? "custom-control border-bottom px-0 custom-radio inactive" : "custom-control border-bottom px-0 custom-radio" && timingSlot !== "7AM - 11AM" && "active"}>
                                             <input className="custom-control-input" type="radio" name="exampleRadios" id="mon2" defaultValue="mon2" defaultChecked={selectedDate.getHours() > 16 ? false : true} />
                                             <label className="custom-control-label py-3 w-100 px-3" htmlFor="mon2">
                                                 <i className="icofont-clock-time mr-2" /> 5PM - 9PM <span style={{ fontSize: 10, marginLeft: 5 }}>(Sunset Delivery)</span>

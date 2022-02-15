@@ -68,9 +68,52 @@ const TopHead = ({ setSearchTerm, onFocus, onBlur, focused, searchedProduct, wra
                             </li>
 
                             <li class="ui dropdown" tabIndex="0">
+                                <Dropdown overlay={
+                                    <div class="menu dropdown_account">
+                                        <Menu>
+                                            {data.auth.isUserLogin ?
+                                                <>
+                                                    <Menu.Item>
+                                                        <a href="javascript:void(0)" onClick={() => navigate("/account")} class="item channel_item"><i class="uil uil-apps icon__1"></i>Dashbaord</a>
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-box icon__1"></i>My Orders</a>
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-heart icon__1"></i>My Wishlist</a>
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-usd-circle icon__1"></i>My Wallet</a>
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-location-point icon__1"></i>My Address</a>
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-gift icon__1"></i>Offers</a>
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-info-circle icon__1"></i>Faq</a>
+                                                    </Menu.Item>
+                                                    <Menu.Item>
+                                                        <a href="javascript:void(0)" onClick={() => data.logOut()} class="item channel_item"><i class="uil uil-lock-alt icon__1"></i>Logout</a>
+                                                    </Menu.Item>
+                                                </> : <Menu.Item>
+                                                    <Link to="/login" class="item channel_item"><i class="uil uil-lock-alt icon__1"></i>Login</Link>
+                                                </Menu.Item>
+                                            }
+                                        </Menu>
+                                    </div>
+                                }>
+                                    <a href="#" class="opts_account ant-dropdown-link">
+                                        <img src="/images/avatar/img-5.jpg" alt="" />
+                                        <span class="user__name">{data.auth.isUserLogin ? data.user?.user_info?.name?.replace(/ .*/, '') : "Guest"}</span>
+                                        <i class="uil uil-angle-down"></i>
+                                    </a>
+                                </Dropdown>
+                            </li>
+                            {/* <li class="ui dropdown" tabIndex="0">
                                 <a href="#" class="opts_account">
                                     <img src="/images/avatar/img-5.jpg" alt="" />
-                                    <span class="user__name">{data.auth.isUserLogin ? data.user?.user_info?.name?.replace(/ .*/, '') : "Guest"}</span>
                                     <i class="uil uil-angle-down"></i>
                                 </a>
                                 <div class="menu dropdown_account">
@@ -82,28 +125,16 @@ const TopHead = ({ setSearchTerm, onFocus, onBlur, focused, searchedProduct, wra
                                             </span>
                                         </a>
                                     </div>
-                                    {data.auth.isUserLogin ?
-                                        <>
-                                            {/* <a class="dropdown-item" href="#" onClick={() => navigate("/account")}>My account</a>
+                                            <a class="dropdown-item" href="#" onClick={() => navigate("/account")}>My account</a>
                                             <a class="dropdown-item" href="#" onClick={() => navigate("/notification")}>Notification</a>
                                             <a class="dropdown-item" href="#" onClick={() => navigate("/offers")}>Offers</a>
                                             <a class="dropdown-item" href="#" onClick={() => navigate("/orders")}>My Orders</a>
                                             <a class="dropdown-item" href="#" onClick={() => navigate("/address")}>My address</a>
                                             <a class="dropdown-item" href="#" onClick={() => navigate("/condition")}>Conditions</a>
                                             <a class="dropdown-item" href="#" onClick={() => navigate("/contact")}>Contact Us</a>
-                                            <a class="dropdown-item" href="#" onClick={() => logOut()}>Logout</a> */}
-                                            <a href="javascript:void(0)" onClick={() => navigate("/account")} class="item channel_item"><i class="uil uil-apps icon__1"></i>Dashbaord</a>
-                                            <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-box icon__1"></i>My Orders</a>
-                                            <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-heart icon__1"></i>My Wishlist</a>
-                                            <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-usd-circle icon__1"></i>My Wallet</a>
-                                            <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-location-point icon__1"></i>My Address</a>
-                                            <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-gift icon__1"></i>Offers</a>
-                                            <a href="javascript:void(0)" class="item channel_item"><i class="uil uil-info-circle icon__1"></i>Faq</a>
-                                            <a href="javascript:void(0)" onClick={() => data.logOut()} class="item channel_item"><i class="uil uil-lock-alt icon__1"></i>Logout</a>
-                                        </>
-                                        : <Link to="/login" class="item channel_item"><i class="uil uil-lock-alt icon__1"></i>Login</Link>}
+                                            <a class="dropdown-item" href="#" onClick={() => logOut()}>Logout</a>
                                 </div>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>

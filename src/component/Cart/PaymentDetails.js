@@ -71,7 +71,6 @@ export const PaymentDetails = (props) => {
     return (
         <>
             <div className="bg-white rounded overflow-hidden shadow-sm mb-3 checkout-sidebar">
-
                 <div>
                     <div className="bg-white p-3 clearfix">
                         <p className="font-weight-bold small mb-2">Bill Details</p>

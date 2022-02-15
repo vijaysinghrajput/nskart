@@ -585,17 +585,17 @@ i.icon1 {
     border-radius: 100%;
 }
 
-.opts_account {
+.opts_account, .ant-dropdown-trigger {
     font-weight: 500;
     color: #2b2f4c;
 	float: right;
-    padding: 5px 5px 5px 10px;
+    /* padding: 5px 5px 5px 10px; */
     background: #f9f9f9;
     border-radius: 10px;
     margin-left: 17px;
 }
 
-.opts_account img {
+.opts_account img, .ant-dropdown-trigger img {
     width: 30px;
     border-radius: 50%;
     border: 1px solid #fff;
@@ -603,12 +603,12 @@ i.icon1 {
     margin-left: 0;
 }
 
-.opts_account .user__name {
+.opts_account .user__name, .ant-dropdown-trigger .user__name {
     margin-left: 10px;
 	font-size: 13px;
 }
 
-.opts_account:hover {
+.opts_account:hover, .ant-dropdown-trigger:hover {
     color: #f55d2c !important;
 }
 
@@ -762,14 +762,14 @@ i.icon1 {
     color: #ed2a26 !important;
 }
 
-.ui.dropdown .menu>.channel_item {
+.ui.dropdown .menu>.channel_item, .ant-menu-title-content>.channel_item {
     color: #2b2f4c !important;
-    padding: .78571429rem 1.14285714rem!important;
     font-size: 14px !important;
     font-weight: 400 !important;
+    padding: 12px 40px 12px 5px !important;
 }
 
-.ui.dropdown .menu>.channel_item:hover {
+.ui.dropdown .menu>.channel_item:hover, .ant-menu-title-content>.channel_item:hover {
     color: #2b2f4c !important;
     background:#ffecec !important;
 }
@@ -1134,6 +1134,9 @@ i.icon1 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column;
+    text-align: left;
+    align-items: baseline;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-bottom: 0;
@@ -1719,7 +1722,7 @@ i.icon1 {
 .custom-control-label {
     font-size: 14px;
     font-weight: 400;
-    color: #2b2f4c !important;
+    color: #2b2f4c;
     vertical-align: middle !important;
     padding-top: 2px;
     padding-left: 5px;
@@ -1743,7 +1746,8 @@ i.icon1 {
 }
 
 .custom-control-input:checked~.custom-control-label::before {
-    border-color: #f55d2c !important;
+    border-color: #ebebeb !important;
+    border-radius: 50%;
     background-color: #f55d2c !important;
 }
 

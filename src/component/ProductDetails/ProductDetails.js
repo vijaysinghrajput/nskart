@@ -152,8 +152,9 @@ const ProductDetails = () => {
                             <div class="product-dt-view">
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4">
-                                        <img src={URL + "/images/product-images/" + product?.product_image} className="img-fluid mx-auto shadow-sm rounded d-block"
-                                        />
+                                        <img src={URL + "/images/product-images/" + product?.product_image} className="img-fluid mx-auto rounded d-block" style={{ minHeight: 390 }}
+                                            alt={product?.product_name + " in Gorakhpur | SuperG.in is an online vegetable, fruit, cake ,chicken, and grocery delivery website and app in Gorakhpur , Which deliver you home at very low prices. Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"}
+                                            title={product?.product_name + " delivery in Gorakhpur | Vegetables & Fruits delivery in Gorakhpur, Grocery delivery in Gorakhpur, Chicken & Fish delivery in Gorakhpur"} />
                                     </div>
                                     <div class="col-lg-8 col-md-8">
                                         <div class="product-dt-right">

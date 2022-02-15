@@ -14,7 +14,7 @@ import CategoryPage from './page/CategoryPage';
 import SubCategoryPage from './page/SubCategoryPage';
 import AccountPageApp from './page/AccountPageApp';
 import NotFoundPage from './page/NotFoundPage';
-
+import 'antd/dist/antd.css';
 import URL from './URL'
 import SearchPage from './page/SearchPage';
 import { OrderSuccessFull } from './component/Cart/OrderSuccessfull';

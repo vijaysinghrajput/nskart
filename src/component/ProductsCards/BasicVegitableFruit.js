@@ -43,7 +43,7 @@ export const BasicVegitableFruit = ({ data }) => {
 
                     <Link state={location.pathname} to={"/" + (data.product_name + " delivery in gorakhpur").replace(/\s/g, "-").toLowerCase() + "/" + data.id}
                         class="product-img">
-                        <img style={{ maxWidth: 100, maxHeight: 100 }} border="0" src={URL + "/images/product-images/" + data.product_image} alt="" />
+                        <img border="0" src={URL + "/images/product-images/" + data.product_image} alt="" />
                         <div class="product-absolute-options">
 
                             {data.discount !== "0" && <span class="offer-badge-1">{Math.round(data.discount)} %</span>}
