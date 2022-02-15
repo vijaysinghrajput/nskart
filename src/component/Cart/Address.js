@@ -160,7 +160,7 @@ class Address extends Component {
                                                                         </p>
                                                                     </div>
 
-                                                                    <span data-toggle="collapse" data-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree" onClick={() => { this.setState({ selectedDeliveryAddress: item.address_id }); this.props.setAddress(item) }} className={this.state.selectedDeliveryAddress == item.address_id ? 'btn bg-theme-primary border-top btn-lg btn-block' : 'btn btn-default border-top btn-lg btn-block'} >
+                                                                    <span style={{ cursor: "pointer" }} data-toggle="collapse" data-target="#collapsethree" aria-expanded="true" aria-controls="collapsethree" onClick={() => { this.setState({ selectedDeliveryAddress: item.address_id }); this.props.setAddress(item) }} className={this.state.selectedDeliveryAddress == item.address_id ? 'btn bg-theme-primary border-top btn-lg btn-block' : 'btn btn-light border-top btn-lg btn-block'} >
                                                                         Deliver Here
                                                                     </span>
 

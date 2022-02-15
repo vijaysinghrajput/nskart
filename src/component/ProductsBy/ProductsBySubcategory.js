@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import ContextData from '../../context/MainContext';
 import { Filter } from '../comman/Fillter';
 import OshanContainer from '../comman/OshanContainer';
 import { BasicVegitableFruit } from '../ProductsCards/BasicVegitableFruit';
 import Seo from "../Seo";
-
+import { Menu, Dropdown, Select } from 'antd';
 
 
 const ProductsBySubcategory = (props) => {
@@ -13,9 +13,11 @@ const ProductsBySubcategory = (props) => {
     const { subcatID, subcatName } = useParams();
     const data = useContext(ContextData);
     const { products } = data;
+    const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(true);
     const [productsBySub, setProductsBySub] = useState([]);
     const [shorting, setShorting] = useState({});
+    const { Option } = Select;
 
     useEffect(() => {
         // window.scrollTo(0, 0)
@@ -24,7 +26,14 @@ const ProductsBySubcategory = (props) => {
         setIsLoading(false);
     }, [products, subcatID]);
 
+    const handleChange = (change) => {
+        const cont = change == "relevence" ? { relevence: true } : change == "priceLTH" ? { priceLTH: true } : change == "priceHTL" ? { priceHTL: true } : { discount: true };
+        console.log("love", cont);
+        setShortingByClick(cont);
+    }
+
     const setShortingByClick = (shorting) => {
+        console.log("ok byee", shorting)
         const myProd = products.filter(p => p.category_id == subcatID);
         const { priceLTH, priceHTL, discount } = shorting;
         priceLTH ? setProductsBySub(myProd.sort((a, b) => parseFloat(a.price) - parseFloat(b.price)))
@@ -79,20 +88,12 @@ const ProductsBySubcategory = (props) => {
                                         <h2>{subcatName}</h2>
                                     </div>
                                     <div class="product-sort">
-                                        <div class="ui selection dropdown vchrt-dropdown">
-                                            <input name="gender" type="hidden" value="default" />
-                                            <i class="dropdown icon d-icon"></i>
-                                            <div class="text">Popularity</div>
-                                            <div class="menu">
-                                                <div class="item" data-value="0">Popularity</div>
-                                                <div class="item" data-value="1">Price - Low to High</div>
-                                                <div class="item" data-value="2">Price - High to Low</div>
-                                                <div class="item" data-value="3">Alphabetical</div>
-                                                <div class="item" data-value="4">Saving - High to Low</div>
-                                                <div class="item" data-value="5">Saving - Low to High</div>
-                                                <div class="item" data-value="6">% Off - High to Low</div>
-                                            </div>
-                                        </div>
+                                        <Select defaultValue="Relevence" style={{ width: 120 }} onChange={handleChange}>
+                                            <Option value="relevence">Relevence</Option>
+                                            <Option value="priceLTH">Price (Low to High)</Option>
+                                            <Option value="priceHTL">Price (High to Low)</Option>
+                                            <Option value="discount">Discount (High to Low)</Option>
+                                        </Select>
                                     </div>
                                 </div>
                             </div>

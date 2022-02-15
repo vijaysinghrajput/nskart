@@ -43,14 +43,13 @@ const SliderCart = (props) => {
                     <div class="bs-canvas-footer">
                         <div class="cart-total-dil saving-total ">
                             <h4>Total Saving</h4>
-                            <span>$₹{Math.round(GetTotalSaving)}</span>
+                            <span>₹{Math.round(GetTotalSaving)}</span>
                         </div>
                         <div class="main-total-cart">
                             <h2>Total</h2>
                             <span> ₹{Math.round(GetTotal)}</span>
                         </div>
                         <div class="checkout-cart">
-                            <a href="#" class="promo-code">Have a promocode?</a>
                             <Link to="/cart" class="cart-checkout-btn bs-canvas-close hover-btn">Proceed to Checkout</Link>
                         </div>
                     </div>

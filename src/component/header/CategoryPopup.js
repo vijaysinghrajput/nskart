@@ -43,7 +43,7 @@ const CategoryPopup = (props) => {
                         </div>
                         <div class="category-model-content modal-content">
                             <div class="cate-header">
-                                <h4>Select Category</h4>
+                                <h4 className='text-light' style={{ fontWeight: "700" }}>Select Category</h4>
                             </div>
                             <ul class="category-by-cat">
                                 {data.isLoading ? (
