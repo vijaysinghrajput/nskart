@@ -61,7 +61,7 @@ export const BasicVegitableFruit = ({ data }) => {
                         <div className="qty-cart">
                             {!productData.itemQuant ? (
                                 <div className="plusMinusFun d-flex justify-content-between px-3 align-items-center" style={{ width: 'fit-content', padding: 4, marginLeft: "auto" }}>
-                                    <BsFillCartPlusFill size="20" style={{ color: "#006200", cursor: "pointer", fontSize: 20 }} onClick={() =>
+                                    <BsFillCartPlusFill size="20" style={{ color: "#0a0a0a", cursor: "pointer", fontSize: 20 }} onClick={() =>
                                         mainData.addToCart({
                                             ...data,
                                             itemQuant: 1,
@@ -74,7 +74,7 @@ export const BasicVegitableFruit = ({ data }) => {
                                     {productData.itemQuant === 1 ? (
                                         <BsFillCartXFill
                                             size="24"
-                                            style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#f55d2c" }}
+                                            style={{ marginLeft: 5, marginRight: 6, fontSize: 18, cursor: "pointer", color: "#0a0a0a" }}
                                             onClick={() =>
                                                 mainData.removeFromCart(data.id)}
                                         />

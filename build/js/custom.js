@@ -64,7 +64,7 @@ $('.ui.dropdown')
 	;
 
 $('.dropdown').dropdown({ transition: 'drop', on: 'hover' });
-$('.dropdown').dropdown({ transition: 'drop', on: 'click' });
+// $('.dropdown').dropdown({ transition: 'drop', on: 'click' });
 
 
 // === Model === //

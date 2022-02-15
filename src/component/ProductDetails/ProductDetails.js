@@ -159,10 +159,7 @@ const ProductDetails = () => {
                                     <div class="col-lg-8 col-md-8">
                                         <div class="product-dt-right">
                                             <h2>{product?.product_name}</h2>
-                                            <div class="no-stock">
-                                                <p class="pd-no">Product No.<span>{product?.product_name}</span></p>
-                                                <p class="stock-qty">Available<span className='text-success'>(In Stock)</span></p>
-                                            </div>
+
                                             <div class="product-radio">
                                                 <ul class="product-now">
                                                     <li>
@@ -171,7 +168,6 @@ const ProductDetails = () => {
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <p class="pp-descp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate, purus at tempor blandit, nulla felis dictum eros, sed volutpat odio sapien id lectus. Cras mollis massa ac congue posuere. Fusce viverra mauris vel magna pretium aliquet. Nunc tincidunt, velit id tempus tristique, velit dolor hendrerit nibh, at scelerisque neque mauris sed ex.</p>
                                             <div class="product-group-dt">
                                                 <ul>
                                                     <li><div class="main-price color-discount">Discount Price<span>₹{(product?.price) - (product?.price * product?.discount / 100)}</span></div></li>
@@ -225,29 +221,10 @@ const ProductDetails = () => {
                                                         )}
                                                     </div>
                                                 </div>
+
+
                                             </div>
-                                            <div class="pdp-details">
-                                                <ul>
-                                                    <li>
-                                                        <div class="pdp-group-dt">
-                                                            <div class="pdp-icon"><i class="uil uil-usd-circle"></i></div>
-                                                            <div class="pdp-text-dt">
-                                                                <span>Lowest Price Guaranteed</span>
-                                                                <p>Get difference refunded if you find it cheaper anywhere else.</p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li>
-                                                        <div class="pdp-group-dt">
-                                                            <div class="pdp-icon"><i class="uil uil-cloud-redo"></i></div>
-                                                            <div class="pdp-text-dt">
-                                                                <span>Easy Returns & Refunds</span>
-                                                                <p>Return products at doorstep and get refund in seconds.</p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -264,7 +241,7 @@ const ProductDetails = () => {
                                     {moreLikeThis.slice(0, 8).map((data) => {
                                         return data.id !== prodID &&
                                             <div class="cart-item border_radius">
-                                                <a href="single_product_view.html" class="cart-product-img">
+                                                <a href="#" class="cart-product-img">
                                                     <img src={URL + "/images/product-images/" + data?.product_image} alt="" />
                                                     <div class="offer-badge">4% OFF</div>
                                                 </a>
@@ -298,32 +275,7 @@ const ProductDetails = () => {
                                             <h4>Description</h4>
                                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque posuere nunc in condimentum maximus. Integer interdum sem sollicitudin, porttitor felis in, mollis quam. Nunc gravida erat eu arcu interdum eleifend. Cras tortor velit, dignissim sit amet hendrerit sed, ultricies eget est. Donec eget urna sed metus dignissim cursus.</p>
                                         </div>
-                                        <div class="pdct-dt-step">
-                                            <h4>Benefits</h4>
-                                            <div class="product_attr">
-                                                Aliquam nec nulla accumsan, accumsan nisl in, rhoncus sapien.<br />
-                                                In mollis lorem a porta congue.<br />
-                                                Sed quis neque sit amet nulla maximus dignissim id mollis urna.<br />
-                                                Cras non libero at lorem laoreet finibus vel et turpis.<br />
-                                                Mauris maximus ligula at sem lobortis congue.<br />
-                                            </div>
-                                        </div>
-                                        <div class="pdct-dt-step">
-                                            <h4>How to Use</h4>
-                                            <div class="product_attr">
-                                                The peeled, orange segments can be added to the daily fruit bowl, and its juice is a refreshing drink.
-                                            </div>
-                                        </div>
-                                        <div class="pdct-dt-step">
-                                            <h4>Seller</h4>
-                                            <div class="product_attr">
-                                                Gambolthemes Pvt Ltd, Sks Nagar, Near Mbd Mall, Ludhana, 141001
-                                            </div>
-                                        </div>
-                                        <div class="pdct-dt-step">
-                                            <h4>Disclaimer</h4>
-                                            <p>Phasellus efficitur eu ligula consequat ornare. Nam et nisl eget magna aliquam consectetur. Aliquam quis tristique lacus. Donec eget nibh et quam maximus rutrum eget ut ipsum. Nam fringilla metus id dui sollicitudin, sit amet maximus sapien malesuada.</p>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
